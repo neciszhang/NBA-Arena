@@ -1,0 +1,101 @@
+/* pages/myawards/myawards.wxss */
+
+page {
+  height: 100%;
+  overflow: hidden;
+}
+
+.myawards {
+  position: relative;
+  height: 100%;
+}
+
+.myawards-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.myawards-return {
+  position: absolute;
+  width: 165rpx;
+  height: 37rpx;
+  left: 39rpx;
+  top: 55rpx;
+  z-index: 1;
+}
+
+.myawards-title {
+  text-align: center;
+  position: relative;
+  padding-top: 50rpx;
+}
+
+.myawards-title .logo {
+  width: 205rpx;
+  height: 146rpx;
+}
+
+.myawards-noaward {
+  text-align: center;
+  position: relative;
+  padding-top: 204rpx;
+}
+
+.myawards-noaward .noaward {
+  width: 719rpx;
+  height: 335rpx;
+}
+
+.myawards-lists {
+  padding-top: 36rpx;
+  height: 920rpx;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  box-sizing: border-box;
+}
+
+.myawards-lists .item {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  border: 8rpx solid #b1b1b1;
+  background: white;
+  height: 178rpx;
+  margin-bottom: 37rpx;
+}
+
+.myawards-lists .item:last-child {
+  margin-bottom: 0;
+}
+
+.myawards-lists .item-1 {
+  text-align: center;
+  width: 158rpx;
+  line-height: 0;
+}
+
+.myawards-lists .item-2 {
+  text-align: left;
+  width: 308rpx;
+  color: #132952;
+  font-size: 28rpx;
+}
+
+.myawards-lists .item-2-small {
+  font-size: 16rpx;
+}
+
+.myawards-lists .item-3 {
+  text-align: center;
+  width: 222rpx;
+  line-height: 0;
+}
+
+.myawards-lists .item-btn {
+  text-align: center;
+  width: 215rpx;
+  height: 65rpx;
+}

@@ -1,0 +1,26 @@
+var finalsFr = {
+  logoSrc: function (item) {
+    if (!item) return;
+    return "../../images/teams/" + item + ".png";
+  },
+  reverse: function (direction,str) {
+    if(!str){
+      return false;
+    }
+    if(!direction){
+      return str;
+    }
+    if(direction=='left'){
+      return str;
+    }
+    if(direction=='right'){
+      return str.split('').reverse().join('');
+    }
+    return str;
+  }
+}
+
+module.exports = {
+  logoSrc: finalsFr.logoSrc,
+  reverse: finalsFr.reverse
+}

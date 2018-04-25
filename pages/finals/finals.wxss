@@ -1,0 +1,442 @@
+/* pages/finals/finals.wxss */
+
+.finals {
+    position: relative;
+    background: #142851;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.finals-top {
+    width: 100%;
+    height: 383rpx;
+    vertical-align: top;
+}
+
+.finals-return {
+    width: 165rpx;
+    height: 37rpx;
+    position: absolute;
+    left: 39rpx;
+    top: 54rpx;
+}
+
+.finals-time-box {
+    padding: 50rpx 0;
+}
+
+.finals-success-box {
+    padding-top: 64rpx;
+    padding-bottom: 33rpx;
+}
+
+.finas-success-word {
+    font-size: 39rpx;
+    line-height: 1;
+    margin-bottom: 34rpx;
+    text-align: center;
+    color: #fefefe;
+}
+
+.finals-share-box {
+    margin-top: 36rpx;
+    text-align: center;
+}
+
+.finals-share-btn {
+    width: 295rpx;
+    height: 80rpx;
+    vertical-align: top;
+}
+
+.finals-confirm-box {
+    padding-top: 77rpx;
+    padding-bottom: 33rpx;
+}
+
+.finals-confirm-word {
+    font-size: 39rpx;
+    color: #fefefe;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.finals-confirm-word2 {
+    font-size: 28rpx;
+    color: #fefefe;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.finals-time-title {
+    text-align: center;
+    color: #fefefe;
+    font-size: 24rpx;
+    line-height: 1;
+}
+
+.finals-time-content {
+    width: 457rpx;
+    height: 72rpx;
+    margin: 0 auto;
+    margin-top: 18rpx;
+    margin-bottom: 58rpx;
+    background: #b81327;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+.finals-time-content-box {
+    width: 100rpx;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.finals-time-number {
+    font-size: 37rpx;
+    color: #ffffff;
+    background: #142851;
+    text-align: center;
+    width: 37rpx;
+    height: 54rpx;
+    box-sizing: border-box;
+}
+
+.finals-time-word {
+    font-size: 16rpx;
+    color: #ffffff;
+    text-align: center;
+    width: 16rpx;
+    align-self: flex-end;
+    box-sizing: border-box;
+    padding-bottom: 10rpx;
+}
+
+.finals-time-score-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    color: #ffffff;
+    line-height: 1;
+    margin-top: 18rpx;
+}
+
+.finals-time-score {
+    font-size: 54rpx;
+}
+
+.finals-time-score-word {
+    font-size: 30rpx;
+    margin-left: 10rpx;
+}
+
+.finals-vote-box {
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 55rpx;
+    box-sizing: border-box;
+}
+
+.finals-vote-box.error {
+    border: 10rpx solid #df0013;
+}
+
+.finals-bg-2 {
+    width: 100%;
+    height: 432rpx;
+    vertical-align: top;
+}
+
+.finals-vote-title {
+    position: absolute;
+    width: 142rpx;
+    height: 48rpx;
+    left: 305rpx;
+    top: 26rpx;
+}
+
+.finals-vote-content {
+    width: 582rpx;
+    position: absolute;
+    left: 87rpx;
+    top: 68rpx;
+}
+
+.finals-vote-content-box::before,
+.finals-vote-content-box::after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.finals-vote-content-left {
+    width: 169rpx;
+    float: left;
+}
+
+.finals-vote-content-teamname {
+    color: #142851;
+    font-size: 24rpx;
+    text-align: center;
+    line-height: 1;
+    margin-bottom: 10rpx;
+}
+
+.finals-vote-content-teambox {
+    position: relative;
+}
+
+.finals-vote-content-teambg {
+    width: 169rpx;
+    height: 197rpx;
+    vertical-align: top;
+}
+
+.finals-vote-content-winteambg {
+    width: 175rpx;
+    height: 248rpx;
+    margin-top: -51rpx;
+    vertical-align: top;
+}
+
+.finals-vote-teamlogo {
+    position: absolute;
+    transform: translate3d(-50%, -50%, 0);
+    width: 80rpx;
+    height: 80rpx;
+    z-index: 0;
+    left: 50%;
+    top: 49%;
+}
+
+.finals-vote-content-middle {
+    width: 244rpx;
+    text-align: center;
+    float: left;
+}
+
+.finals-vote-content-right {
+    width: 169rpx;
+    float: right;
+}
+
+.finals-vote-mid-scoretop {
+    margin-top: 99rpx;
+}
+
+.finals-vote-mid-score {
+    color: #142851;
+    font-size: 58rpx;
+    line-height: 1;
+    position: relative;
+}
+
+.finals-vote-mid-line {
+    color: #142851;
+    font-size: 58rpx;
+    line-height: 0;
+    margin: 0 10rpx;
+}
+
+.finals-vote-mid-word1 {
+    color: #142851;
+    font-size: 24rpx;
+    text-align: center;
+    margin-top: 58rpx;
+}
+
+.finals-vote-select {
+    margin-top: 25rpx;
+}
+
+.finals-vote-select::before,
+.finals-vote-select::after {
+    clear: both;
+    display: table;
+}
+
+.finals-vote-select-tip {
+    color: #142851;
+    font-size: 24rpx;
+    text-align: center;
+    margin-top: 64rpx;
+}
+
+.finals-vote-selectconfirm-item {
+    width: 139rpx;
+    height: 65rpx;
+    text-align: center;
+    line-height: 65rpx;
+    margin: 0 auto;
+    position: relative;
+}
+
+.finals-vote-win-item {
+    width: 259rpx;
+    height: 80rpx;
+    text-align: center;
+    line-height: 80rpx;
+    margin: 0 auto;
+    position: relative;
+}
+
+.finals-vote-select-item {
+    width: 139rpx;
+    height: 65rpx;
+    text-align: center;
+    line-height: 65rpx;
+    float: left;
+    position: relative;
+}
+
+.finals-vote-select-itembg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 151rpx;
+    height: 80rpx;
+    z-index: 0;
+}
+
+.finals-vote-win-itembg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 259rpx;
+    height: 80rpx;
+    z-index: 0;
+}
+
+.finals-vote-select-itemscore {
+    color: #142851;
+    font-size: 38rpx;
+    line-height: 65rpx;
+    position: relative;
+}
+
+.finals-vote-win-itemscore {
+    color: #142851;
+    font-size: 38rpx;
+    line-height: 65rpx;
+    position: absolute;
+    width: 128rpx;
+    left: 0;
+    top: 0;
+    text-align: center;
+    z-index: 1;
+}
+
+.finals-vote-select-item.active .finals-vote-select-itemscore {
+    color: #ffffff;
+}
+
+.finals-vote-select-item .active-bg {
+    display: none;
+}
+
+.finals-vote-select-item .inactive-bg {
+    display: block;
+}
+
+.finals-vote-select-item.active .active-bg {
+    display: block;
+}
+
+.finals-vote-select-item.active .inactive-bg {
+    display: none;
+}
+
+.finals-bg-1 {
+    width: 100%;
+    height: 332rpx;
+    vertical-align: top;
+}
+
+.finals-vote-mid-word2 {
+    color: #142851;
+    font-size: 24rpx;
+    text-align: center;
+    margin-top: 10rpx;
+}
+
+.finals-vote-finallogo {
+    position: absolute;
+    width: 123rpx;
+    height: 86rpx;
+    left: 317rpx;
+    top: 30rpx;
+}
+
+.finals-vote-btns {
+    padding-top: 20rpx;
+    padding-bottom: 80rpx;
+    overflow: hidden;
+}
+
+.finals-vote-btnsword {
+    text-align: center;
+    line-height: 1;
+    color: #fefefe;
+    font-size: 24rpx;
+}
+
+.finals-vote-btnsbox {
+    margin-top: 33rpx;
+    text-align: center;
+}
+
+.finals-vote-btn {
+    vertical-align: top;
+    width: 295rpx;
+    height: 80rpx;
+}
+
+.finals-vote-notice {
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    /* display: none; */
+}
+
+.finals-vote-noticebox {
+    width: 650rpx;
+    height: 287rpx;
+    position: absolute;
+    left: 50rpx;
+    top: 400rpx;
+    background: #142851;
+    border: 9rpx solid #ffffff;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.finals-vote-noticeword {
+    color: #ffffff;
+    font-size: 36rpx;
+    text-align: center;
+    margin-top: 90rpx;
+    line-height: 1;
+}
+
+.finals-vote-noticebtnbox {
+    text-align: center;
+    margin-top: 48rpx;
+}
+
+.finals-vote-noticebtn {
+    vertical-align: top;
+    width: 295rpx;
+    height: 80rpx;
+}

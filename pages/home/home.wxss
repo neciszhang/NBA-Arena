@@ -1,0 +1,807 @@
+/**index.wxss**/
+
+.large_border,
+.medium_border,
+.small_border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 12;
+}
+
+page {
+    height: 100%;
+}
+
+.index_container {
+    position: absolute;
+    width: 750rpx;
+    height: 100%;
+    overflow: hidden;
+}
+
+.index_swiper {
+    position: absolute;
+    width: 750rpx;
+    height: 100%;
+    z-index: 11;
+}
+
+.slider {
+    position: absolute;
+    left: -750rpx;
+    top: 0;
+    width: 2250rpx;
+    height: 100%;
+    background: #fff;
+}
+
+.west {
+    position: absolute;
+    width: 750rpx;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 11;
+}
+
+.east {
+    position: absolute;
+    width: 750rpx;
+    height: 100%;
+    right: 0;
+    top: 0;
+    z-index: 11;
+}
+
+.center {
+    position: absolute;
+    width: 750rpx;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 11;
+}
+
+.gray_bg {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1005rpx;
+    height: 0;
+    border-bottom: 1470rpx solid #dcdcdc;
+    border-left: 530rpx solid transparent;
+    z-index: 0;
+}
+
+.blue_bg {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 804rpx;
+    height: 0;
+    border-bottom: 1470rpx solid #132952;
+    border-left: 530rpx solid transparent;
+    z-index: 1;
+}
+
+.login_btn {
+    position: absolute;
+    left: 540rpx;
+    top: 22rpx;
+    z-index: 11;
+}
+
+.awards {
+    position: absolute;
+    left: 598rpx;
+    bottom: 22rpx;
+    z-index: 11;
+}
+
+.details {
+    position: absolute;
+    left: 30rpx;
+    bottom: 22rpx;
+    z-index: 11;
+}
+
+.ultimate_fight {
+    position: absolute;
+    left: 224rpx;
+    bottom: 136rpx;
+    z-index: 11;
+}
+
+.title {
+    position: absolute;
+    left: 190rpx;
+    top: 130rpx;
+    z-index: 11;
+}
+
+.sub_title {
+    position: absolute;
+    left: 190rpx;
+    top: 720rpx;
+    z-index: 11;
+}
+
+.left_arrow {
+    position: absolute;
+    left: 15rpx;
+    bottom: 153rpx;
+    z-index: 11;
+    -webkit-animation: opacity_left 1.2s ease infinite;
+    animation: opacity_left 1.2s ease infinite;
+}
+
+.west_btn {
+    position: absolute;
+    left: 132rpx;
+    bottom: 148rpx;
+    z-index: 11;
+    opacity: 0;
+    -webkit-animation: opacity_full 0.5s 1.6s ease forwards;
+    animation: opacity_full 0.5s 1.6s ease forwards;
+}
+
+.right_arrow {
+    position: absolute;
+    left: 635rpx;
+    bottom: 153rpx;
+    z-index: 11;
+    -webkit-animation: opacity_right 1.2s ease infinite;
+    animation: opacity_right 1.2s ease infinite;
+}
+
+.east_btn {
+    position: absolute;
+    left: 545rpx;
+    bottom: 148rpx;
+    z-index: 11;
+    opacity: 0;
+    -webkit-animation: opacity_full 0.5s 1.6s ease forwards;
+    animation: opacity_full 0.5s 1.6s ease forwards;
+}
+
+.center_line {
+    position: absolute;
+    left: 0;
+    top: 472rpx;
+    z-index: 11;
+}
+
+.cup {
+    position: absolute;
+    left: 254rpx;
+    top: 426rpx;
+    z-index: 11;
+    opacity: 0;
+    -webkit-animation: opacity_full 0.5s 0.5s ease forwards;
+    animation: opacity_full 0.5s 0.5s ease forwards;
+}
+
+.west_champion_box {
+    position: absolute;
+    left: 66rpx;
+    top: 492rpx;
+    width: 154rpx;
+    height: 179rpx;
+    z-index: 11;
+    overflow: hidden;
+    opacity: 0;
+    -webkit-animation: opacity_full_left_move 0.5s 1s ease forwards;
+    animation: opacity_full_left_move 0.5s 1s ease forwards;
+}
+
+.east_champion_box {
+    position: absolute;
+    left: 524rpx;
+    top: 492rpx;
+    width: 154rpx;
+    height: 179rpx;
+    z-index: 11;
+    overflow: hidden;
+    opacity: 0;
+    -webkit-animation: opacity_full_right_move 0.5s 1s ease forwards;
+    animation: opacity_full_right_move 0.5s 1s ease forwards;
+}
+
+.west_line {
+    position: absolute;
+    right:124rpx;
+    top:135rpx;
+    z-index: 10;
+}
+
+.west_title {
+    position: absolute;
+    right: 31rpx;
+    top: 30rpx;
+    z-index: 11;
+    opacity: 0;
+}
+
+.go_east_btn {
+    position: absolute;
+    right: 13rpx;
+    bottom: 146rpx;
+    z-index: 11;
+    opacity: 0;
+}
+
+.west_troops .troops {
+    position: absolute;
+    left: 96rpx;
+}
+
+.west_troops .troops_name {
+    color: #132952;
+    position: absolute;
+    left: 104rpx;
+    width: 106rpx;
+    font-size: 26rpx;
+    text-align: center;
+}
+
+.east_troops .team_logo,
+.west_troops .team_logo {
+    width: 46rpx;
+}
+
+.east_troops .team_logo_box,
+.west_troops .team_logo_box {
+    position: absolute;
+    left: 16rpx;
+    top: 38rpx;
+    width: 72rpx;
+    height: 84rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 13;
+}
+
+.west .semifinals_troops .troops {
+    position: absolute;
+    left: 385rpx;
+    width: 130rpx;
+    height: 140rpx;
+    overflow: hidden;
+}
+
+.west_final .troops {
+    position: absolute;
+    left: 547rpx;
+    width: 157rpx;
+    height: 180rpx;
+    overflow: hidden;
+}
+
+.east_line {
+    position: absolute;
+    left: 106rpx;
+    top: 129rpx;
+    z-index: 11;
+}
+
+.east_title {
+    position: absolute;
+    left: 33rpx;
+    top: 30rpx;
+    z-index: 11;
+    opacity: 0;
+}
+
+.go_west_btn {
+    position: absolute;
+    left: 12rpx;
+    bottom: 146rpx;
+    z-index: 11;
+    opacity: 0;
+}
+
+.east_troops .troops {
+    position: absolute;
+    left: 553rpx;
+    z-index: 11;
+}
+
+.east_troops .troops_name {
+    color: #fff;
+    position: absolute;
+    right: 0;
+    width: 106rpx;
+    font-size: 26rpx;
+    text-align: center;
+    z-index: 11;
+}
+
+.east .semifinals_troops .troops {
+    position: absolute;
+    left: 222rpx;
+    z-index: 11;
+}
+
+.east_final .troops {
+    position: absolute;
+    left: 33rpx;
+    z-index: 11;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.opacity_full {
+    -webkit-animation: opacity_full 0.5s ease forwards;
+    animation: opacity_full 0.5s ease forwards;
+}
+
+.opacity_full_right_move {
+    -webkit-animation: opacity_full_right_move 0.5s ease forwards;
+    animation: opacity_full_right_move 0.5s ease forwards;
+}
+
+.opacity_full_left_move {
+    -webkit-animation: opacity_full_left_move 0.5s ease forwards;
+    animation: opacity_full_left_move 0.5s ease forwards;
+}
+
+.opacity_empty {
+    -webkit-animation: opacity_empty 0.5s ease forwards;
+    animation: opacity_empty 0.5s ease forwards;
+}
+
+.line_1 {
+    position: absolute;
+    top: 473rpx;
+    left: 0;
+    opacity: 0;
+    -webkit-animation: opacity_full_left_move 0.5s 1.2s ease forwards;
+    animation: opacity_full_left_move 0.5s 1.2s ease forwards;
+}
+
+.line_2 {
+    position: absolute;
+    top: 574rpx;
+    left: 218rpx;
+    opacity: 0;
+    -webkit-animation: opacity_full_left_move 0.5s 0.8s ease forwards;
+    animation: opacity_full_left_move 0.5s 0.8s ease forwards;
+}
+
+.line_3 {
+    position: absolute;
+    top: 574rpx;
+    left: 494rpx;
+    opacity: 0;
+    -webkit-animation: opacity_full_right_move 0.5s 0.8s ease forwards;
+    animation: opacity_full_right_move 0.5s 0.8s ease forwards;
+}
+
+.line_4 {
+    position: absolute;
+    top: 473rpx;
+    right: 0;
+    opacity: 0;
+    -webkit-animation: opacity_full_right_move 0.5s 1.2s ease forwards;
+    animation: opacity_full_right_move 0.5s 1.2s ease forwards;
+}
+
+.status_letter {
+    position: absolute;
+    width: 81rpx;
+    top: 57rpx;
+    left: 24rpx;
+    z-index: 12;
+}
+
+
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 99;
+}
+
+.load_title {
+    position: absolute;
+    top: 247rpx;
+    left: 265rpx;
+}
+
+.load_empty_cup,
+.load_full_cup {
+    position: absolute;
+    top: 432rpx;
+    left: 316rpx;
+}
+
+.load_full_cup {
+    overflow: hidden;
+}
+
+.load_progress {
+    position: absolute;
+    top: 749rpx;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    font-size: 40rpx;
+}
+
+.team_score {
+    position: absolute;
+    top: -22rpx;
+    right: -5rpx;
+    color: #fff;
+    font-size: 26rpx;
+}
+
+.semifinals_troops .win_team {
+    position: absolute;
+    width: 110rpx;
+    height: 131rpx;
+    left: 10rpx;
+    top: 7rpx;
+    z-index: 12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.west_final .win_team,
+.east_final .win_team,
+.center .win_team {
+    position: absolute;
+    width: 133rpx;
+    height: 158rpx;
+    left: 12rpx;
+    top: 7rpx;
+    z-index: 12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.west_final .status_letter,
+.east_final .status_letter,
+.center .status_letter {
+    left: 39rpx;
+    top: 71rpx;
+}
+
+.unbegin {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 12;
+}
+
+@-webkit-keyframes opacity_full {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes opacity_full {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes opacity_left {
+    0% {
+        -webkit-transform: translateX(7px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(-7px);
+        opacity: 1;
+    }
+}
+
+@keyframes opacity_left {
+    0% {
+        -webkit-transform: translateX(7px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(-7px);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes opacity_right {
+    0% {
+        -webkit-transform: translateX(-7px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(7px);
+        opacity: 1;
+    }
+}
+
+@keyframes opacity_right {
+    0% {
+        -webkit-transform: translateX(-7px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(7px);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes opacity_full_right_move {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(-8px);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+    }
+}
+
+@keyframes opacity_full_right_move {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(-8px);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+    }
+}
+
+@-webkit-keyframes opacity_full_left_move {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(8px);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+    }
+}
+
+@keyframes opacity_full_left_move {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(8px);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+    }
+}
+
+@-webkit-keyframes opacity_empty {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes opacity_empty {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+
+
+page {
+    height: 100%;
+    overflow: hidden;
+}
+
+.login {
+    position: relative;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    z-index: 99;
+}
+
+.login-content {
+    width: 649rpx;
+    margin: 0 auto;
+    margin-top: 200rpx;
+    overflow: hidden;
+    position: relative;
+}
+
+.login-content .login-bg {
+    width: 649rpx;
+    height: 721rpx;
+}
+
+.login-title {
+    position: absolute;
+    width: 239rpx;
+    height: 105rpx;
+    top: 52rpx;
+    left: 207rpx;
+}
+
+.login-close {
+    position: absolute;
+    width: 57rpx;
+    height: 66rpx;
+    top: 31rpx;
+    right: 25rpx;
+}
+
+.login-form {
+    width: 495rpx;
+    position: absolute;
+    left: 79rpx;
+    top: 188rpx;
+    color: #142851;
+    font-size: 24rpx;
+    box-sizing: border-box;
+}
+
+.login-word {
+    margin-bottom: 8rpx;
+}
+
+.login-form1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: white;
+    height: 64rpx;
+    margin-bottom: 46rpx;
+}
+
+.login-form1-1 {
+    width: 71rpx;
+    text-align: right;
+}
+
+.login-form1-2 {
+    width: 424rpx;
+    text-align: left;
+    padding-left: 11rpx;
+}
+
+.login-wrong {
+    color: #df0013;
+    position: inherit;
+    left: 0;
+    top: 106rpx;
+}
+
+.login-form2 {
+    background: white;
+    height: 64rpx;
+    margin-bottom: 46rpx;
+    overflow: hidden;
+    line-height: 64rpx;
+    position: relative;
+}
+
+.login-form2-1 {
+    width: 100%;
+    height: 100%;
+    padding-left: 29rpx;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+
+.login-form2-2 {
+    width: 235rpx;
+    height: 64rpx;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 0;
+    text-align: right;
+    color: white;
+    padding-right: 33rpx;
+    box-sizing: border-box;
+}
+
+.login-form2-3 {
+    padding-right: 17rpx;
+}
+
+.login-form2-bg {
+    position: absolute;
+    width: 235rpx;
+    height: 64rpx;
+    right: 0;
+    top: 0;
+}
+
+.login-wrong-captcha {
+    color: #df0013;
+    position: inherit;
+    left: 0;
+    top: 258rpx;
+}
+
+.login-form3 {
+    display: flex;
+    flex-direction: row;
+}
+
+.login-form3-1 .wx-checkbox-input {
+    width: 26rpx;
+    height: 26rpx;
+    background: #3a89e9;
+}
+
+.login-form3-1 .wx-checkbox-input.wx-checkbox-input-checked {
+    border: none;
+}
+
+.login-form3-1 .wx-checkbox-input.wx-checkbox-input-checked::before {
+    width: 26rpx;
+    height: 26rpx;
+    line-height: 26rpx;
+    text-align: center;
+    font-size: 20rpx;
+    color: #fff;
+    background: transparent;
+    transform: translate(-50%, -50%) scale(1);
+    -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+.login-form3-box {
+    width: 40rpx;
+}
+
+.login-form3-2 {
+    width: 445rpx;
+}
+
+.login-btn-box {
+    width: 100%;
+    text-align: center;
+    line-height: 0;
+    margin-top: 40rpx;
+}
+
+.login-btn {
+    width: 295rpx;
+    height: 80rpx;
+}

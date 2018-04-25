@@ -1,0 +1,55 @@
+<!--pages/login/login.wxml-->
+<view class='login' wx:if="{{showLogin===true}}">
+  <view class='login-content'>
+    <image class="login-bg" src='../../images/login_bg.jpg'></image>
+    <image class="login-title" src='../../images/login_title.png'></image>
+    <image bindtap='closeLogin' class="login-close" src='../../images/login_close.png'></image>
+    <view class='login-form'>
+      <view class='login-word'>
+        手机号码
+      </view>
+      <view class='login-form1'>
+        <view class='login-form1-1'>
+          +86
+        </view>
+        <input bindinput="bindTel" class='login-form1-2' placeholder="请输入手机号码" maxlength='11' />
+      </view>
+      <view wx:if="{{showTelError===true}}" class='login-wrong'>
+        请输入正确中国大陆手机号
+      </view>
+      <view class='login-word'>
+        短信验证码
+      </view>
+      <view class='login-form2'>
+        <input bindinput="bindCode" class='login-form2-1' placeholder="请输入验证码" maxlength='4' />
+        <view wx:if="{{isSend===false}}">
+          <image class='login-form2-bg' src='../../images/login_send_bg.png'></image>
+          <view bindtap='sendMessage' class='login-form2-2'>
+            发送验证码
+          </view>
+        </view>
+        <view wx:if="{{isSend===true}}">
+          <image class='login-form2-bg' src='../../images/login_send_bg2.png'></image>
+          <view bindtap='sendMessage' class='login-form2-2 login-form2-3'>
+            已发送（{{wait}}S）
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{showCodeError==true}}" class='login-wrong login-wrong-captcha'>
+        验证码错误
+      </view>
+      <view class='login-form3'>
+        <view class='login-form3-box'>
+          <checkbox class='login-form3-1' value="true" checked='true' />
+        </view>
+
+        <view bindtap='login' class='login-form3-2'>
+          我已阅读并同意《网站使用条款》、 《隐私政策》及《NBA球迷圈条款》
+        </view>
+      </view>
+      <view class='login-btn-box'>
+        <image bindtap='login' class="login-btn" src='../../images/login_login.png'></image>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,34 @@
+<!--pages/myawards/myawards.wxml-->
+<wxs module="myawardsFr" src="../../filter/myawardsFr.wxs"></wxs>
+
+<view class='myawards'>
+  <component-exchange id="exchange" modal-hidden="{{is_modal_Hidden}}" item="{{item}}"
+    ind="{{ind}}" syncAttrMap="ind=ind" bind:syncAttrUpdate="onSyncAttrUpdate" bind:golink="onTriggerLink"></component-exchange>
+  <image class="myawards-bg" src='../../images/myawards_bg.jpg'></image>
+  <navigator open-type="navigateBack">
+    <image class='myawards-return' src='../../images/returnhome.png'></image>
+  </navigator>
+  <view class='myawards-title'>
+    <image class='logo' src='../../images/myawards_title.png'></image>
+  </view>
+  <view class='myawards-noaward' wx:if="{{myRewards.length==0}}">
+    <image class='noaward' src='../../images/myawards_noaward.png'></image>
+  </view>
+  <scroll-view class='myawards-lists' scroll-y="true" wx:if="{{myRewards.length>0}}">
+
+    <view class='item' wx:for="{{myRewards}}" wx:key="unique">
+      <view class='item-1'>
+        <image src='../../images/myawards_{{item.prod_id}}.jpg' bindload='autoImage' data-index='{{index}}' style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;"></image>
+      </view>
+      <view class='item-2'>
+        <view>{{item.copy}}</view>
+        <view>奖品：{{item.reward_name}}</view>
+         <view class='item-2-small' wx:if="{{item.prod_id==='17PLAYOFFC3'}}">请于6月30日前领取；领取后7天内使用</view> 
+      </view>
+      <view class='item-3'>
+        <image wx:if="{{item.prod_id!=='17PLAYOFFC3'&&item.prod_id!==0}}" bindtap="showExchangeModel" data-index='{{index}}' data-item="{{item}}" class='item-btn' src='{{myawardsFr.btnSrc(item,item.status)}}'></image>
+      </view>
+    </view>
+
+  </scroll-view>
+</view>

@@ -1,0 +1,29 @@
+var myawardsFr = {
+
+  btnSrc: function (item) {
+
+    if(item.status===1){
+      return '../../images/myawards_btn2_false.png'
+    }
+
+    switch (item.type){
+      case 0:
+        return '../../images/myawards_btn2.png'
+        break;
+      case 1:
+        return '../../images/myawards_btn2.png'
+        break;
+      case 2:
+        return '../../images/myawards_btn3.png'
+        break;
+      case 3:
+        return '../../images/myawards_btn1.png'
+        break;
+    }
+
+  }
+}
+
+module.exports = {
+  btnSrc: myawardsFr.btnSrc
+}

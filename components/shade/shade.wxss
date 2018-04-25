@@ -1,0 +1,338 @@
+.shade {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup_unbegin, .guessing, .guessed, .missed, .gameover_missed, .guess_error,
+.guess_right {
+  position: relative;
+  width: 649rpx;
+  height: 1003rpx;
+  overflow: hidden;
+}
+
+.popup_unbegin .unbegin_fail_word, .guessed .guessed_letter,
+.missed .missed_title, .gameover_missed .missed_title,
+.guess_error .guess_error_title, .guess_right .guess_right_title {
+  position: absolute;
+  top: 52rpx;
+  left: 201rpx;
+}
+
+.popup_unbegin .unbegin_status {
+  position: absolute;
+  top: 290rpx;
+  left: 225rpx;
+}
+
+.popup_unbegin .letter, .guessing .letter, .guessed .letter, .missed .letter,
+.gameover_missed .letter, .guess_error .letter, .guess_right .letter {
+  position: absolute;
+  top: 600rpx;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 34rpx;
+  color: #142851;
+  line-height: 50rpx;
+}
+
+.popup_unbegin .letter {
+  top: 550rpx;
+}
+
+.guessed .letter {
+  top: 583rpx;
+}
+
+.guess_right .letter {
+  font-size: 30rpx;
+}
+
+.guessing .letter, .guessed .letter, .missed .letter, .gameover_missed .letter,
+.guess_error .letter, .guess_right .letter {
+  color: #fff;
+}
+
+.popup_unbegin .return_btn, .guessing .guessing_submit_btn {
+  position: absolute;
+  left: 183rpx;
+  bottom: 40rpx;
+}
+
+.popup_unbegin .west_cup {
+  position: absolute;
+  left: 165rpx;
+  bottom: 134rpx;
+}
+
+.popup_unbegin .east_cup {
+  position: absolute;
+  left: 165rpx;
+  bottom: 35rpx;
+}
+
+.popup_unbegin .close, .guessing .close, .guessed .close, .missed .close,
+.gameover_missed .close, .guess_error .close, .guess_right .close {
+  position: absolute;
+  right: 24rpx;
+  top: 22rpx;
+  z-index: 12;
+}
+
+.count_down_bg {
+  position: absolute;
+  top: 108rpx;
+  left: 98rpx;
+}
+
+.team_1, .team_2, .team_1, .team_2 {
+  position: absolute;
+  width: 183rpx;
+  height: 232rpx;
+  top: 329rpx;
+}
+
+.team_1 {
+  left: 111rpx;
+}
+
+.team_2 {
+  left: 350rpx;
+}
+
+.team_1_name, .team_2_name {
+  font-size: 24rpx;
+  color: #fff;
+  position: absolute;
+  left: 54rpx;
+  top: 0;
+}
+
+.team_1_name {
+  color: #142851;
+}
+
+.team_2_name {
+  left: 89rpx;
+}
+
+.team_1_bg, .team_2_bg {
+  position: absolute;
+  top: 45rpx;
+  left: 0;
+}
+
+.team_2_bg {
+  left: 38rpx;
+}
+
+.team_1_score, .team_2_score {
+  position: absolute;
+  top: 90rpx;
+  right: 0;
+  font-size: 58rpx;
+  color: #142851;
+}
+
+.team_2_score {
+  left: 0;
+  color: #fff;
+}
+
+.line {
+  position: absolute;
+  left: 316rpx;
+  top: 457rpx;
+}
+
+.team_1 .team_image_url, .team_2 .team_image_url {
+  position: absolute;
+  top: 42rpx;
+  left: 7rpx;
+  width: 140rpx;
+  height: 185rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 12;
+}
+
+.team_2 .team_image_url {
+  left: 43rpx;
+}
+
+.count_down {
+  position: absolute;
+  top: 176rpx;
+  left: 106rpx;
+  color: #fff;
+  font-size: 50rpx;
+}
+
+.guessing .count_time {
+  position: absolute;
+  width: 35rpx;
+  height: 55rpx;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.guessing .days_1 {
+  left: 10rpx;
+}
+
+.guessing .days_2 {
+  left: 49rpx;
+}
+
+.guessing .hours_1 {
+  left: 128rpx;
+}
+
+.guessing .hours_2 {
+  left: 167rpx;
+}
+
+.guessing .minutes_1 {
+  left: 243rpx;
+}
+
+.guessing .minutes_2 {
+  left: 283rpx;
+}
+
+.guessing .seconds_1 {
+  left: 360rpx;
+}
+
+.guessing .seconds_2 {
+  left: 399rpx;
+}
+
+.guessed_share_btn {
+  background: transparent;
+  padding: 0;
+}
+
+.guessed_share_btn,  {
+  position: absolute;
+  left: 168rpx;
+  bottom: 40rpx;
+  width: 295rpx;
+  height: 80rpx;
+  overflow: hidden;
+}
+
+.fans_title {
+  position: absolute;
+  left: 50%;
+  bottom: 46rpx;
+  width: 286rpx;
+  height: 80rpx;
+  margin-left: -143rpx;
+  overflow: hidden;
+}
+
+.approval_rate_right {
+  position: absolute;
+  top: 756rpx;
+  left: 103rpx;
+  width: 438rpx;
+  height: 42rpx;
+  background: #fff;
+  transform: skew(-30deg);
+  -webkit-transform: skew(-30deg);
+}
+
+.approval_rate_left {
+  position: absolute;
+  top: 756rpx;
+  left: 103rpx;
+  width: 100rpx;
+  height: 42rpx;
+  background: #2d49c3;
+  transform: skew(-30deg);
+  -webkit-transform: skew(-30deg);
+  z-index: 11;
+}
+
+.approval_rate_left text {
+  color: #fff;
+  font-size: 22rpx;
+  line-height: 42rpx;
+  float: left;
+  margin-left: 22rpx;
+  margin-top: 40rpx;
+}
+
+.approval_rate_right text {
+  color: #fff;
+  font-size: 22rpx;
+  line-height: 42rpx;
+  float: right;
+  margin-right: 10rpx;
+  margin-top: 40rpx;
+}
+
+.approval_rate_title, .miss_title {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 140rpx;
+  left: 0;
+  color: #fff;
+  font-size: 24rpx;
+}
+
+.gameover_missed .team_1_bg, .guess_error .team_1_bg, .guess_right .team_2_bg {
+  top: 0;
+}
+
+.gameover_missed .team_1 .team_image_url, .guess_error .team_1 .team_image_url,
+.guess_right .team_image_url,  {
+  width: 130rpx;
+}
+
+.scale {
+  -webkit-animation: scale 0.3s linear;
+  animation: scale 0.3s linear;
+}
+
+@-webkit-keyframes scale {
+  0% {
+    -webkit-transform: scale(0.8);
+  }
+
+  50% {
+    -webkit-transform: scale(1.2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes scale {
+  0% {
+    -webkit-transform: scale(0.8);
+  }
+
+  50% {
+    -webkit-transform: scale(1.2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+  }
+}

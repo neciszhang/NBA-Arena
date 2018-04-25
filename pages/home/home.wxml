@@ -1,0 +1,293 @@
+<view>
+    <import src="../../components/img-loader/img-loader.wxml" />
+    <template is="img-loader" data="{{ loadList }}"></template>
+</view>
+<view class='loading {{loadShow ? "opacity_full":"opacity_empty"}} {{swiperShow?"hide":"show"}}'>
+    <image mode='widthFix' class='load_title' src='../../images/title.png' style='width:223rpx;'></image>
+    <view class='load_full_cup' style='width:135rpx;height:290rpx;'>
+        <image mode='widthFix' src='../../images/loading_full.png' style='width:135rpx;height:290rpx;'></image>
+    </view>
+    <view class='load_progress'>{{load_progress}}%</view>
+</view>
+<view class='index_container'>
+    <view class="slider" animation="{{animationData}}">
+        <view class="blue_bg" animation="{{bg_blue_move}}"></view>
+        <view class="gray_bg" animation="{{bg_gray_move}}"></view>
+    </view>
+</view>
+<swiper current="{{current}}" class='index_swiper {{swiperShow ? "show" : "hide"}}' duration="300" bindchange='swiperChange'>
+    <swiper-item>
+        <view class='west'>
+            <image mode='widthFix' class='west_line' src='../../images/west_line.png' style='width:320rpx;'></image>
+            <image mode='widthFix' style='width:195rpx;' src='../../images/west_title.png' class='west_title opacity_full_right_move {{west_title_show?"show":"hide"}}'></image>
+            <image mode='widthFix' style='width:191rpx;' src='../../images/west_btn.png' class='go_east_btn opacity_full_right_move {{west_title_show?"show":"hide"}}' bindtap='handleEast'></image>
+            <view class='west_troops'>
+                <block wx:for="{{westStatus}}" wx:key="{{index}}" wx:if="{{index < 4}}">
+                    <view class='troops' style='top:{{item.team1_pos}}rpx;'>
+                        <image wx:if="{{item.win_team_id == item.team1_id}}" mode='widthFix' style='width:103rpx;' class='small_border' src='../../images/small_border_ling.png'></image>
+                        <image wx:if="{{item.win_team_id != item.team1_id}}" mode='widthFix' style='width:103rpx;' class='small_border' src='../../images/small_border.png'></image>
+                        <view class='team_logo_box'>
+                            <image mode='widthFix' class='team_logo' src="../../images/teams/{{item.team1_id}}.png"></image>
+                            <text class='team_score'>{{item.team1_rank}}</text>
+                        </view>
+                        <text class='troops_name' style='top:62rpx;'>{{item.team1_name}}</text>
+                    </view>
+                    <view class='troops' style='top:{{item.team2_pos}}rpx;'>
+                        <image wx:if="{{item.win_team_id == item.team2_id}}" mode='widthFix' style='width:103rpx;' class='small_border' src='../../images/small_border_ling.png'></image>
+                        <image wx:if="{{item.win_team_id != item.team2_id}}" mode='widthFix' style='width:103rpx;' class='small_border' src='../../images/small_border.png'></image>
+                        <view class='team_logo_box'>
+                            <image mode='widthFix' class='team_logo' src="../../images/teams/{{item.team2_id}}.png"></image>
+                            <text class='team_score'>{{item.team2_rank}}</text>
+                        </view>
+                        <text class='troops_name' style='top:62rpx;'>{{item.team2_name}}</text>
+                    </view>
+                </block>
+            </view>
+            <view class='semifinals_troops'>
+                <block wx:for="{{westStatus}}" wx:key="{{index}}" wx:if="{{index < 4}}">
+                    <view class='troops' data-area="west" data-index="{{index}}" bindtap='handleClick' style='top:{{item.resultPos}}rpx;'>
+                        <block wx:if="{{westStatus[index].status == 0}}">
+                            <image mode='widthFix' class='unbegin' src='../../images/unbegin.png' style='width:127rpx;'></image>
+                        </block>
+                        <block wx:if="{{westStatus[index].status == 1}}">
+                            <image class='medium_border' mode='widthFix' src='../../images/medium_border.png' style='width:127rpx;'></image>
+                            <image mode='widthFix' class='status_letter' src='../../images/guessing_letter.png'></image>
+                        </block>
+                        <block wx:if="{{(westStatus[index].status == 3) && (westStatus[index].win_team_id == null)}}">
+                            <image class='medium_border' mode='widthFix' src='../../images/medium_border.png' style='width:127rpx;'></image>
+                            <image mode='widthFix' class='status_letter' src='../../images/begin_letter.png'></image>
+                        </block>
+                        <block wx:if="{{(westStatus[index].status == 3) && (westStatus[index].win_team_id != null)}}">
+                            <image class='medium_border' mode='widthFix' src='../../images/medium_border.png' style='width:127rpx;'></image>
+                            <view class='win_team'>
+                                <image style="width:50rpx;" mode='widthFix' src='{{westStatus[index].win_team_url}}'></image>
+                            </view>
+                        </block>
+                    </view>
+                </block>
+            </view>
+            <view class='west_final'>
+                <block wx:for="{{westStatus}}" wx:key="{{index}}" wx:if="{{index >= 4}}">
+                    <view class='troops' data-area="west" data-index="{{index}}" bindtap="handleClick" style='top:{{item.resultPos}}rpx;'>
+                        <block wx:if="{{westStatus[index].status == 0}}">
+                            <image mode='widthFix' class='unbegin' src='../../images/unbegin.png' style='width:154rpx;'></image>
+                        </block>
+                        <block wx:if="{{westStatus[index].status == 1}}">
+                            <image class='medium_border' mode='widthFix' src='../../images/medium_border.png' style='width:154rpx;'></image>
+                            <image mode='widthFix' class='status_letter' src='../../images/guessing_letter.png'></image>
+                        </block>
+                        <block wx:if="{{(westStatus[index].status == 3) && (westStatus[index].win_team_id == null)}}">
+                            <image class='medium_border' mode='widthFix' src='../../images/medium_border.png' style='width:154rpx;'></image>
+                            <image mode='widthFix' class='status_letter' src='../../images/begin_letter.png'></image>
+                        </block>
+                        <block wx:if="{{(westStatus[index].status == 3) && (westStatus[index].win_team_id != null)}}">
+                            <image class='medium_border' mode='widthFix' src='../../images/medium_border.png' style='width:154rpx;'></image>
+                            <view class='win_team'>
+                                <image style="width:80rpx;" mode='widthFix' src='{{westStatus[index].win_team_url}}'></image>
+                            </view>
+                        </block>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </swiper-item>
+    <swiper-item>
+        <view class='center {{center_show?"opacity_full":"opacity_empty"}}'>
+            <image mode='widthFix' class='title' style='width:372rpx;' src='../../images/title.png'></image>
+            <image mode='widthFix' src='../../images/sub_title.png' class='sub_title' style='width:388rpx;'></image>
+            <image wx:if="{{logined}}" mode='widthFix' style='width:150rpx;' class='login_btn' src='../../images/logined.png'></image>
+            <image wx:else mode='widthFix' bindtap='link_login' style='width:199rpx;' class='login_btn' src='../../images/p1_login.png'></image>
+            <navigator url="/pages/myawards/myawards">
+                <image class='awards' mode='widthFix' style='width:121rpx;' src='../../images/p1_awards.png'></image>
+            </navigator>
+            <navigator url="/pages/details/details">
+                <image mode='widthFix' style='width:151rpx;' class='details' src='../../images/p1_details.png'></image>
+            </navigator>
+            <!-- 需要修改，根据advpredict判断 如果advpredict status!=0，就出现按钮，点击进入高级竞猜页面，否则出现未开始弹窗 -->
+            <image mode='widthFix' data-area="final" data-index="2" bindtap='handleClick' wx:if="{{advPredict.status != 0}}" src='../../images/ultimate_fight.png' style='width:300rpx;' class='ultimate_fight'></image>
+            <!-- 需要修改，根据advpredict判断 -->
+            <image mode='widthFix' style='width:99rpx;' class='left_arrow {{arrow_show?"show":"hide"}}' src='../../images/left_arrow.png' bindtap='handleWest'></image>
+            <image mode='widthFix' bindtap='handleWest' style='width:70rpx;' class='west_btn' src='../../images/west.png'></image>
+            <image mode='widthFix' style='width:102rpx;' bindtap='handleEast' class='right_arrow {{arrow_show?"show":"hide"}}' src='../../images/right_arrow.png'></image>
+            <image mode='widthFix' style='width:70rpx;' bindtap='handleEast' class='east_btn' src='../../images/east.png'></image>
+            <image mode='widthFix' class='line_1' style='width:69rpx;' src='../../images/line_1.png'></image>
+            <image mode='widthFix' class='line_2' style='width:28rpx;' src='../../images/line_2.png'></image>
+            <image mode='widthFix' class='line_3' style='width:28rpx;' src='../../images/line_3.png'></image>
+            <image mode='widthFix' class='line_4' style='width:73rpx;' src='../../images/line_4.png'></image>
+            <image mode='widthFix' style='width:237rpx;' class='cup' data-area="final" data-index="2" bindtap='handleClick' src='../../images/cup.png'></image>
+            <!-- 需要修改，根据advpredict判断 如果advpredict status!=0 就出现按钮，点击进入高级竞猜页面，否则出现未开始弹窗 -->
+            <!-- 东西部场次错误 -->
+            <view class='west_champion_box' data-area="final" data-index="1" bindtap='handleClick'>
+                <block wx:if="{{finalStatus[1].status == 0}}">
+                    <image mode='widthFix' class='unbegin' src='../../images/unbegin.png' style='width:154rpx;'></image>
+                </block>
+                <block wx:if="{{finalStatus[1].status == 1}}">
+                    <image class='medium_border' mode='widthFix' src='../../images/medium_border.png' style='width:154rpx;'></image>
+                    <image mode='widthFix' class='status_letter' src='../../images/guessing_letter.png'></image>
+                </block>
+                <block wx:if="{{(finalStatus[1].status == 3) && (finalStatus[1].win_team_id == null)}}">
+                    <image class='medium_border' mode='widthFix' src='../../images/medium_border.png' style='width:154rpx;'></image>
+                    <image mode='widthFix' class='status_letter' src='../../images/begin_letter.png'></image>
+                </block>
+                <block wx:if="{{(finalStatus[1].status == 3) && (finalStatus[1].win_team_id != null)}}">
+                    <image class='medium_border' mode='widthFix' src='../../images/medium_border.png' style='width:154rpx;'></image>
+                    <view class='win_team'>
+                        <image style="width:80rpx;" mode='widthFix' src='{{finalStatus[1].win_team_url}}'></image>
+                    </view>
+                </block>
+            </view>
+            <view class='east_champion_box' data-area="final" data-index="0" bindtap='handleClick'>
+                <block wx:if="{{finalStatus[0].status == 0}}">
+                    <image mode='widthFix' class='unbegin' src='../../images/unbegin.png' style='width:154rpx;'></image>
+                </block>
+                <block wx:if="{{finalStatus[0].status == 1}}">
+                    <image class='medium_border' mode='widthFix' src='../../images/medium_border.png' style='width:154rpx;'></image>
+                    <image mode='widthFix' class='status_letter' src='../../images/guessing_letter.png'></image>
+                </block>
+                <block wx:if="{{(finalStatus[0].status == 3) && (finalStatus[0].win_team_id == null)}}">
+                    <image class='medium_border' mode='widthFix' src='../../images/medium_border.png' style='width:154rpx;'></image>
+                    <image mode='widthFix' class='status_letter' src='../../images/begin_letter.png'></image>
+                </block>
+                <block wx:if="{{(finalStatus[0].status == 3) && (finalStatus[0].win_team_id != null)}}">
+                    <image class='medium_border' mode='widthFix' src='../../images/medium_border.png' style='width:154rpx;'></image>
+                    <view class='win_team'>
+                        <image style="width:80rpx;" mode='widthFix' src='{{finalStatus[0].win_team_url}}'></image>
+                    </view>
+                </block>
+            </view>
+            <!-- 东西部场次错误 -->
+            <!-- 需要修改，根据advpredict判断 -->
+        </view>
+    </swiper-item>
+    <swiper-item>
+        <view class='east'>
+            <image mode='widthFix' class='east_line' src='../../images/east_line.png' style='width:322rpx;'></image>
+            <image mode='widthFix' style='width:191rpx;' src='../../images/east_title.png' class='east_title opacity_full_left_move {{east_title_show?"show":"hide"}}'></image>
+            <image mode='widthFix' style='width:188rpx;' src='../../images/east_btn.png' class='go_west_btn opacity_full_left_move {{east_title_show?"show":"hide"}}' bindtap='handleWest'></image>
+            <view class='east_troops'>
+                <block wx:for="{{eastStatus}}" wx:key="index" wx:if="{{index < 4}}">
+                    <view class='troops' style='top:{{item.team1_pos}}rpx;'>
+                        <image wx:if="{{item.win_team_id == item.team1_id}}" mode='widthFix' style='width:103rpx;' class='small_border' src='../../images/small_border_ling.png'></image>
+                        <image wx:if="{{item.win_team_id != item.team1_id}}" mode='widthFix' style='width:103rpx;' class='small_border' src='../../images/small_border.png'></image>
+                        <view class='team_logo_box'>
+                            <image mode='widthFix' class='team_logo' src="../../images/teams/{{item.team1_id}}.png"></image>
+                            <text class='team_score'>{{item.team1_rank}}</text>
+                        </view>
+                        <text class='troops_name' style='top:62rpx;'>{{item.team1_name}}</text>
+                    </view>
+                    <view class='troops' style='top:{{item.team2_pos}}rpx;'>
+                        <image wx:if="{{item.win_team_id == item.team2_id}}" mode='widthFix' style='width:103rpx;' class='small_border' src='../../images/small_border_ling.png'></image>
+                        <image wx:if="{{item.win_team_id != item.team2_id}}" mode='widthFix' style='width:103rpx;' class='small_border' src='../../images/small_border.png'></image>
+                        <view class='team_logo_box'>
+                            <image mode='widthFix' class='team_logo' src="../../images/teams/{{item.team2_id}}.png"></image>
+                            <text class='team_score'>{{item.team2_rank}}</text>
+                        </view>
+                        <text class='troops_name' style='top:62rpx;'>{{item.team2_name}}</text>
+                    </view>
+                </block>
+            </view>
+            <view class='semifinals_troops'>
+                <block wx:for="{{eastStatus}}" wx:key="{{index}}" wx:if="{{index < 4}}">
+                    <view class='troops' style='top:{{item.resultPos}}rpx;' data-area="east" data-index="{{index}}" bindtap='handleClick'>
+                        <block wx:if="{{eastStatus[index].status == 0}}">
+                            <image mode='widthFix' src='../../images/unbegin.png' style='width:127rpx;'></image>
+                        </block>
+                        <block wx:if="{{eastStatus[index].status == 1}}">
+                            <image class='medium_border' mode='widthFix' src='../../images/medium_border.png' style='width:127rpx;'></image>
+                            <image mode='widthFix' class='status_letter' src='../../images/guessing_letter.png'></image>
+                        </block>
+                        <block wx:if="{{(eastStatus[index].status == 3) && (eastStatus[index].win_team_id == null)}}">
+                            <image class='medium_border' mode='widthFix' src='../../images/medium_border.png' style='width:127rpx;'></image>
+                            <image mode='widthFix' class='status_letter' src='../../images/begin_letter.png'></image>
+                        </block>
+                        <block wx:if="{{(eastStatus[index].status == 3) && (eastStatus[index].win_team_id != null)}}">
+                            <image class='medium_border' mode='widthFix' src='../../images/medium_border.png' style='width:127rpx;'></image>
+                            <view class='win_team'>
+                                <image style="width:50rpx;" mode='widthFix' src='{{eastStatus[index].win_team_url}}'></image>
+                            </view>
+                        </block>
+                    </view>
+                </block>
+            </view>
+            <view class='east_final'>
+                <block wx:for="{{eastStatus}}" wx:key="{{index}}" wx:if="{{index >= 4}}">
+                    <view class='troops' style='top:{{item.resultPos}}rpx;' data-area="east" data-index="{{index}}" bindtap='handleClick'>
+                        <block wx:if="{{eastStatus[index].status == 0}}">
+                            <image mode='widthFix' src='../../images/unbegin.png' style='width:154rpx;'></image>
+                        </block>
+                        <block wx:if="{{eastStatus[index].status == 1}}">
+                            <image class='medium_border' mode='widthFix' src='../../images/medium_border.png' style='width:154rpx;'></image>
+                            <image mode='widthFix' class='status_letter' src='../../images/guessing_letter.png'></image>
+                        </block>
+                        <block wx:if="{{(eastStatus[index].status == 3) && (eastStatus[index].win_team_id == null)}}">
+                            <image class='medium_border' mode='widthFix' src='../../images/medium_border.png' style='width:154rpx;'></image>
+                            <image mode='widthFix' class='status_letter' src='../../images/begin_letter.png'></image>
+                        </block>
+                        <block wx:if="{{(eastStatus[index].status == 3) && (eastStatus[index].win_team_id != null)}}">
+                            <image class='medium_border' mode='widthFix' src='../../images/medium_border.png' style='width:154rpx;'></image>
+                            <view class='win_team'>
+                                <image style="width:80rpx;" mode='widthFix' src='{{eastStatus[index].win_team_url}}'></image>
+                            </view>
+                        </block>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </swiper-item>
+</swiper>
+<shade handleClickType="{{clickType}}" clickArea="{{clickArea}}" clickIndex="{{clickIndex}}" westStatus="{{westStatus}}" eastStatus="{{eastStatus}}" finalStatus="{{finalStatus}}" advPredict="{{advPredict}}" bind:action="reset_index" bind:link="link_west_east"></shade>
+<view class='login' wx:if="{{showLogin===true}}">
+    <view class='login-content'>
+        <image class="login-bg" src='../../images/login_bg.jpg'></image>
+        <image class="login-title" src='../../images/login_title.png'></image>
+        <image bindtap='closeLogin' class="login-close" src='../../images/login_close.png'></image>
+        <view class='login-form'>
+            <view class='login-word'>
+                手机号码
+            </view>
+            <view class='login-form1'>
+                <view class='login-form1-1'>
+                    +86
+                </view>
+                <input bindinput="bindTel" class='login-form1-2' placeholder="请输入手机号码" maxlength='11' />
+            </view>
+            <view wx:if="{{showTelError===true}}" class='login-wrong'>
+                请输入正确中国大陆手机号
+            </view>
+            <view class='login-word'>
+                短信验证码
+            </view>
+            <view class='login-form2'>
+                <input bindinput="bindCode" class='login-form2-1' placeholder="请输入验证码" maxlength='4' />
+                <view wx:if="{{isSend===false}}">
+                    <image class='login-form2-bg' src='../../images/login_send_bg.png'></image>
+                    <view bindtap='sendMessage' class='login-form2-2'>
+                        发送验证码
+                    </view>
+                </view>
+                <view wx:if="{{isSend===true}}">
+                    <image class='login-form2-bg' src='../../images/login_send_bg2.png'></image>
+                    <view bindtap='sendMessage' class='login-form2-2 login-form2-3'>
+                        已发送（{{wait}}S）
+                    </view>
+                </view>
+            </view>
+            <view wx:if="{{showCodeError==true}}" class='login-wrong login-wrong-captcha'>
+                验证码错误
+            </view>
+            <view class='login-form3'>
+                <view class='login-form3-box'>
+                    <checkbox-group bindchange="is_checked">
+                        <checkbox class='login-form3-1' value="true" checked='{{checked}}' />
+                    </checkbox-group>
+                </view>
+                <view bindtap='login' class='login-form3-2'>
+                    我已阅读并同意《网站使用条款》、 《隐私政策》及《NBA球迷圈条款》
+                </view>
+            </view>
+            <view class='login-btn-box'>
+                <image bindtap='login' class="login-btn" src='../../images/login_login.png'></image>
+            </view>
+        </view>
+    </view>
+</view>

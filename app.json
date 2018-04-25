@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/home",
+    "pages/myawards/myawards",
+    "pages/details/details",
+    "pages/login/login",
+    "pages/finals/finals"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#36363a",
+    "navigationBarTitleText": "NBA竞技场",
+    "navigationBarTextStyle": "white"
+  }
+}

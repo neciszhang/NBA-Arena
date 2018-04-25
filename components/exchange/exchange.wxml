@@ -1,0 +1,217 @@
+<view class="exchange" hidden='{{modalHidden}}'>
+  <view class='exchange-content'>
+    <image class='exchange-bg' src='../../images/exchange_bg.jpg'></image>
+    <image bindtap="closeModel" class='exchange-close' src='../../images/exchange_close.png'></image>
+    <!--填写表单start  -->
+    <view class='exchange-model-1' wx:if="{{item.type===1}}">
+
+      <view class='model-1-1' hidden="{{showModelInfo1===false}}">
+        <view class='model-1-title'>
+          快递信息
+        </view>
+        <view class='model-1-form'>
+          <view class="{{showNameError===true?'model-1-form-error-border':''}}">
+            <input placeholder-class="model-1-form-phcolor" bindinput="bindName" value="{{name}}" class='model-1-form-1' placeholder="姓名*" />
+          </view>
+          <view class='model-1-form-error'>
+            <text wx:if="{{showNameError===true}}" class='model-1-form-error-text'>请输入姓名</text>
+          </view>
+          <view class='model-1-form-2'>
+            <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+              <view class="picker model-1-form-box">
+                <view class="model-1-form-select {{showRegionError===true?'model-1-form-error-border':''}}">
+                  {{region[0]}}
+                  <image class='model-1-form-arrow' src='../../images/exchange_arrow.png'></image>
+                </view>
+                <view class="model-1-form-select {{showRegionError===true?'model-1-form-error-border':''}}">
+                  {{region[1]}}
+                  <image class='model-1-form-arrow' src='../../images/exchange_arrow.png'></image>
+                </view>
+                <view class="model-1-form-select {{showRegionError===true?'model-1-form-error-border':''}}">
+                  {{region[2]}}
+                  <image class='model-1-form-arrow' src='../../images/exchange_arrow.png'></image>
+                </view>
+              </view>
+            </picker>
+          </view>
+          <view class='model-1-form-error'>
+            <text wx:if="{{showRegionError===true}}" class='model-1-form-error-text'>请选择省市区</text>
+          </view>
+          <view class="{{showAddressError===true?'model-1-form-error-border':''}}">
+            <input placeholder-class="model-1-form-phcolor" bindinput="bindAddress" value="{{address}}" class='model-1-form-1' placeholder="详细地址*" />
+          </view>
+          <view class='model-1-form-error'>
+            <text wx:if="{{showAddressError===true}}" class='model-1-form-error-text'>请输入地址</text>
+          </view>
+          <view class="{{showTelError===true?'model-1-form-error-border':''}}">
+            <input placeholder-class="model-1-form-phcolor" bindinput="bindTel" value="{{tel}}" class='model-1-form-1' placeholder="电话号码*" maxlength='11' />
+          </view>
+          <view class='model-1-form-error'>
+            <text wx:if="{{showTelError===true}}" class='model-1-form-error-text'>请输入正确中国大陆手机号</text>
+          </view>
+          <view>
+            <input placeholder-class="model-1-form-phcolor" bindinput="bindRemark" value="{{remark}}" class='model-1-form-1' placeholder="备注信息" />
+          </view>
+          <view class='mode-1-form-tip'>
+            *为必填信息
+          </view>
+        </view>
+
+        <view class='mode-1-form-submit'>
+          <image bindtap="submit" class='mode-1-form-submit-btn' src='../../images/exchange_submit.png'></image>
+        </view>
+      </view>
+
+      <view class='model-1-2-success' hidden="{{showModelInfo2===false}}">
+        <view class='model-1-word-box'>
+          <image class='model-1-tip-img' src='../../images/exchange_success_word.png'></image>
+        </view>
+        <view class='model-1-tip-word'>
+          <view>奖品将在1周内寄出，请留意查收。 </view>
+          <view>如需帮助，请发邮件至</view>
+          <view class='model-1-tip-email'>
+            CUSTOMERSERVICE@NBAQMQ.COM
+          </view>
+        </view>
+        <view class='model-1-return-box'>
+          <image bindtap="returnInfo" class='model-1-return-img' src='../../images/exchange_return.png'></image>
+        </view>
+      </view>
+
+      <view class='model-1-2-fail' hidden="{{showModelInfo3===false}}">
+        <view class='model-1-word-box'>
+          <image class='model-1-tip-img' src='../../images/exchange_fail_word.png'></image>
+        </view>
+        <view class='model-1-tip-word'>
+          <view>请重新输入。</view>
+          <view>如需帮助，请发邮件至</view>
+          <view class='model-1-tip-email'>
+            CUSTOMERSERVICE@NBAQMQ.COM
+          </view>
+        </view>
+        <view class='model-1-return-box'>
+          <image bindtap="returnInfo" class='model-1-return-img' src='../../images/exchange_return.png'></image>
+        </view>
+      </view>
+    </view>
+    <!--填写表单end  -->
+
+    <!--得到入场券start  -->
+    <view class='exchange-model-2' wx:if="{{item.type===2}}">
+      <view class='model-2-logo-box'>
+        <image class='model-2-logo-img' src='../../images/exchange_get_ticket_logo.png'></image>
+      </view>
+      <view class='model-2-content'>
+        <view>
+          恭喜获得
+        </view>
+        <view>
+          {{item.reward_name}}
+        </view>
+      </view>
+      <view class='model-2-tip-word'>
+        <view>工作人员将近期与你电话联系</view>
+        <view>如需帮助，请发邮件至</view>
+        <view class='model-1-tip-email'>
+          CUSTOMERSERVICE@NBAQMQ.COM
+        </view>
+      </view>
+      <view class='model-2-tip-info'>
+        <view wx:if="{{item.prod_id=='17PLAYOFFT3'}}">
+          美国签证需自理
+        </view>
+        <view>
+          详见<text bindtap="goToDetails" class='model-2-line'>奖品和规则</text>
+        </view>
+      </view>
+      <view class='model-2-return-box'>
+        <image bindtap="closeModel" class='model-1-return-img' src='../../images/exchange_return.png'></image>
+      </view>
+    </view>
+    <!--得到入场券end  -->
+
+    <!--得到NBAstore 9折优惠券start type=coupons  -->
+    <view class='exchange-model-3' wx:if="{{item.type===0 && item.prod_id==='17PLAYOFFC1'}}">
+      <view class='model-3-logo-box'>
+        <image class='model-3-logo-img' src='../../images/exchange_nba_store_logo.png'></image>
+      </view>
+      <view class='model-3-content'>
+        <view>
+          {{item.reward_name}}
+        </view>
+        <view class='model-3-content-2'>
+          优惠码
+        </view>
+        <view class='model-3-content-3'>
+          {{item.value}}
+        </view>
+      </view>
+      <view class='model-3-tip-word1'>
+        <view>使用有效期：</view>
+        <view>2018年4月1日-2018年6月30日</view>
+        <view>（UA及定制商品除外）仅可使用一次，</view>
+        <view>不与其他优惠券同时使用</view>
+      </view>
+      <view class='model-3-tip-word2'>
+        <view>使用流程：</view>
+        <view>进入NBA官方商城</view>
+        <view>在结算页面“请选择您的优惠方式”</view>
+        <view>中输入兑换码，点击“使用”</view>
+      </view>
+      <view class='model-3-return-box'>
+        <image bindtap="closeModel" class='model-1-return-img' src='../../images/exchange_return.png'></image>
+      </view>
+    </view>
+    <!--得到NBA store优惠券end  -->
+
+    <!--得到cloth优惠券start type="coupons" -->
+    <view class='exchange-model-4' wx:if="{{item.type===0 && item.prod_id==='17PLAYOFFC2'}}">
+      <view class='model-4-logo-box'>
+        <image class='model-4-logo-img' src='../../images/exchange_nba_logo.png'></image>
+      </view>
+      <view class='model-4-content'>
+        <view>
+          {{item.reward_name}}
+        </view>
+        <view class='model-4-content-1'>
+          （无门槛）
+        </view>
+        <view class='model-4-content-2'>
+          优惠码
+        </view>
+        <view class='model-4-content-3'>
+          {{item.value}}
+        </view>
+      </view>
+      <view class='model-4-tip-word1'>
+        <view>本券需在NBA潮流服饰门店使用</view>
+        <view>有效期至2018年6月30日</view>
+        <view>如需帮助，请发邮件至</view>
+        <view class='model-1-tip-email'>
+          CUSTOMERSERVICE@NBAQMQ.COM
+        </view>
+      </view>
+      <view class='model-3-return-box'>
+        <image bindtap="closeModel" class='model-1-return-img' src='../../images/exchange_return.png'></image>
+      </view>
+    </view>
+    <!--得到cloth优惠券end  -->
+
+    <!--系统错误start  -->
+    <view class='exchange-model-5' wx:if="{{showModelError===true}}">
+      <view class='model-5-content'>抱歉，系统错误。</view>
+      <view class='model-5-tip-word1'>
+        <view>请点击重试。</view>
+        <view>如需帮助，请发邮件至</view>
+        <view class='model-1-tip-email'>
+          CUSTOMERSERVICE@NBAQMQ.COM
+        </view>
+      </view>
+      <view class='model-5-retry-box'>
+        <image bindtap="" class='model-1-return-img' src='../../images/exchange_retry.png'></image>
+      </view>
+    </view>
+    <!--系统错误end  -->
+
+  </view>
+</view>

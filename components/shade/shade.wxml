@@ -1,0 +1,329 @@
+<view class='shade' style="display:{{popup_unbegin_show?'flex':'none'}}">
+    <view class='popup_unbegin'>
+        <image mode='widthFix' style='width:649rpx;' src='../../images/exchange_bg.jpg'></image>
+        <image mode='widthFix' class='unbegin_fail_word' style='width:253rpx;' src='../../images/unbegin_fail_word.png'></image>
+        <image mode='widthFix' style='width:195rpx;' class='unbegin_status' src='../../images/unbegin.png'></image>
+        <view class='letter'>
+            <view>
+                <text>本次竞猜奖励</text>
+            </view>
+            <view>
+                <text>{{total_points}}积分</text>
+            </view>
+            <view>
+                <text>即将开启</text>
+            </view>
+            <view>
+                <text>第一轮系列赛正在进行中！</text>
+            </view>
+        </view>
+        <image class='close' style='width:57rpx;' bindtap='popup_unbegin_hide' mode='widthFix' src='../../images/login_close.png'></image>
+        <block wx:if="{{!unbegin_btn}}">
+            <image class='return_btn' style='width:295rpx;' bindtap='popup_unbegin_hide' mode='widthFix' src='../../images/finals_return_btn.png'></image>
+        </block>
+        <block wx:if="{{unbegin_btn}}">
+            <image class='west_cup' data-area="west" bindtap='link_west_east' style='width:295rpx;' mode='widthFix' src='../../images/cup-west.png'></image>
+            <image class='east_cup' data-area="east" bindtap='link_west_east' style='width:295rpx;' mode='widthFix' src='../../images/cup-east.png'></image>
+        </block>
+    </view>
+</view>
+<view class='shade' style="display:{{popup_guessing?'flex':'none'}}">
+    <view class='guessing'>
+        <image mode='widthFix' style='width:649rpx;' src='../../images/guessing_bg.png'></image>
+        <image mode='widthFix' class='count_down_bg' style='width:475rpx;' src='../../images/count_down_bg.png'></image>
+        <view class='count_down'>
+            <text class='days_1 count_time'>{{day_1}}</text>
+            <text class='days_2 count_time'>{{day_2}}</text>
+            <text class='hours_1 count_time'>{{hour_1}}</text>
+            <text class='hours_2 count_time'>{{hour_2}}</text>
+            <text class='minutes_1 count_time'>{{min_1}}</text>
+            <text class='minutes_2 count_time'>{{min_2}}</text>
+            <text class='seconds_1 count_time'>{{sed_1}}</text>
+            <text class='seconds_2 count_time'>{{sed_2}}</text>
+        </view>
+        <view class='team_1'>
+            <text class='team_1_name'>{{guessingDatas.team1_name}}</text>
+            <image wx:if="{{guessingDatas.team1_id == predict_team_id}}" mode='widthFix' class='team_1_bg {{guessingDatas.team1_id == predict_team_id?"scale":""}}' style='width:153rpx;' src='../../images/finals_team_bg_active.png' bindtap='guessing_team' data-teamId="{{guessingDatas.team1_id}}"></image>
+            <image wx:else mode='widthFix' class='team_1_bg' style='width:153rpx;' src='../../images/large_border.png' data-teamId="{{guessingDatas.team1_id}}"></image>
+            <view class='team_image_url' bindtap='guessing_team' data-teamId="{{guessingDatas.team1_id}}">
+                <block wx:if="{{popup_guessing}}">
+                    <image mode='widthFix' style='width:70rpx;' src='../../images/teams/{{guessingDatas.team1_id}}.png'></image>
+                </block>
+            </view>
+            <text class='team_1_score'>{{guessingDatas.team1_score}}</text>
+        </view>
+        <image mode='widthFix' class='line' style='width:17rpx;' src='../../images/line.png'></image>
+        <view class='team_2'>
+            <text class='team_2_name'>{{guessingDatas.team2_name}}</text>
+            <image mode='widthFix' wx:if="{{guessingDatas.team2_id == predict_team_id}}" class='team_2_bg {{guessingDatas.team2_id == predict_team_id?"scale":""}}' style='width:153rpx;' src='../../images/finals_team_bg_active.png' bindtap='guessing_team' data-teamId="{{guessingDatas.team2_id}}"></image>
+            <image mode='widthFix' wx:else class='team_2_bg' style='width:153rpx;' src='../../images/large_border.png' data-teamId="{{guessingDatas.team2_id}}"></image>
+            <view class='team_image_url' bindtap='guessing_team' data-teamId="{{guessingDatas.team2_id}}">
+                <block wx:if="{{popup_guessing}}">
+                    <image mode='widthFix' src='../../images/teams/{{guessingDatas.team2_id}}.png' style='width:70rpx;'></image>
+                </block>
+            </view>
+            <text class='team_2_score'>{{guessingDatas.team2_score}}</text>
+        </view>
+        <view class='letter'>
+            <view>
+                <text>点击队标竞猜，赢家瓜分</text>
+            </view>
+            <view>
+                <text>{{total_points}}积分</text>
+            </view>
+            <view>
+                连胜8轮赢 <text style="color:#dd1a32">总决赛之旅</text>
+            </view>
+            <view>
+                <navigator url='/pages/details/details'>
+                    <text style="text-decoration:underline;">了解更多奖品</text>
+                </navigator>
+            </view>
+        </view>
+        <image class='close' style='width:57rpx;' bindtap='popup_guessing_hide' mode='widthFix' src='../../images/shade_close_btn.png'></image>
+        <image class='guessing_submit_btn' style='width:295rpx;' bindtap='guessing_submit' mode='widthFix' src='../../images/finals_submit_btn.png'></image>
+    </view>
+</view>
+<view class='shade' style="display:{{popup_guessed?'flex':'none'}}">
+    <view class='guessed'>
+        <image mode='widthFix' style='width:649rpx;' src='../../images/guessing_bg.png'></image>
+        <image mode='widthFix' class='guessed_letter' style='width:253rpx;' src='../../images/guessed_letter.png'></image>
+        <view class='team_1'>
+            <text class='team_1_name'>{{guessingDatas.team1_name}}</text>
+            <image mode='widthFix' wx:if="{{guessingDatas.team1_id == predict_team_id}}" class='team_1_bg {{guessingDatas.team1_id == predict_team_id?"scale":""}}' style='width:153rpx;' src='../../images/finals_team_bg_active.png'></image>
+            <image mode='widthFix' wx:else class='team_1_bg' style='width:153rpx;' src='../../images/large_border.png' data-teamId="{{guessingDatas.team2_id}}"></image>
+            <view class='team_image_url'>
+                <block wx:if="{{guessingDatas.team1_id}}">
+                    <image mode='widthFix' style='width:70rpx;' src='../../images/teams/{{guessingDatas.team1_id}}.png'></image>
+                </block>
+            </view>
+            <text class='team_1_score'>{{guessingDatas.team1_score}}</text>
+        </view>
+        <image mode='widthFix' class='line' style='width:17rpx;' src='../../images/line.png'></image>
+        <view class='team_2'>
+            <text class='team_2_name'>{{guessingDatas.team2_name}}</text>
+            <image mode='widthFix' wx:if="{{guessingDatas.team2_id == predict_team_id}}" class='team_2_bg {{guessingDatas.team2_id == predict_team_id?"scale":""}}' style='width:153rpx;' src='../../images/finals_team_bg_active.png'></image>
+            <image mode='widthFix' wx:else class='team_2_bg' style='width:153rpx;' src='../../images/large_border.png' data-teamId="{{guessingDatas.team2_id}}"></image>
+            <view class='team_image_url'>
+                <block wx:if="{{guessingDatas.team2_id}}">
+                    <image mode='widthFix' src='../../images/teams/{{guessingDatas.team2_id}}.png' style='width:70rpx;'></image>
+                </block>
+            </view>
+            <text class='team_2_score'>{{guessingDatas.team2_score}}</text>
+        </view>
+        <view class='letter'>
+            <view>
+                <text>提交成功！</text>
+            </view>
+            <view>
+                连胜8轮赢 <text style="color:#dd1a32">总决赛之旅</text>
+            </view>
+            <view>
+                <navigator url='/pages/details/details'>
+                    <text style="text-decoration:underline;">了解更多奖品</text>
+                </navigator>
+            </view>
+        </view>
+        <view class='approval_rate_left' style="width:{{438*(guessingDatas.team1_favorate_rate)/100}}rpx;">
+            <text>{{guessingDatas.team1_favorate_rate}}%</text>
+        </view>
+        <view class='approval_rate_right'>
+            <text>{{guessingDatas.team2_favorate_rate}}%</text>
+        </view>
+        <text class='approval_rate_title'>支持率</text>
+        <button open-type='share' size="{{defaultSize}}" class='guessed_share_btn'>
+            <image mode='widthFix' bindtap='share_page' style='width:295rpx;' src='../../images/share_btn.png'></image>
+        </button>
+        <image class='close' style='width:57rpx;' bindtap='popup_guessed_hide' mode='widthFix' src='../../images/shade_close_btn.png'></image>
+    </view>
+</view>
+<view class='shade' style="display:{{popup_missed?'flex':'none'}}">
+    <view class='missed'>
+        <image mode='widthFix' style='width:649rpx;' src='../../images/guessing_bg.png'></image>
+        <image mode='widthFix' class='missed_title' style='width:253rpx;' src='../../images/missed_title.png'></image>
+        <view class='team_1'>
+            <text class='team_1_name'>{{guessingDatas.team1_name}}</text>
+            <image mode='widthFix' class='team_1_bg' style='width:153rpx;' src='../../images/large_border.png'></image>
+            <view class='team_image_url'>
+                <image mode='widthFix' style='width:70rpx;' wx:if="{{guessingDatas.team1_id}}" src='../../images/teams/{{guessingDatas.team1_id}}.png'></image>
+            </view>
+            <text class='team_1_score'>{{guessingDatas.team1_score}}</text>
+        </view>
+        <image mode='widthFix' class='line' style='width:17rpx;' src='../../images/line.png'></image>
+        <view class='team_2'>
+            <text class='team_2_name'>{{guessingDatas.team2_name}}</text>
+            <image mode='widthFix' class='team_2_bg' style='width:153rpx;' src='../../images/large_border.png'></image>
+            <view class='team_image_url'>
+                <image mode='widthFix' wx:if="{{guessingDatas.team2_id}}" src='../../images/teams/{{guessingDatas.team2_id}}.png' style='width:70rpx;'></image>
+            </view>
+            <text class='team_2_score'>{{guessingDatas.team2_score}}</text>
+        </view>
+        <view class='letter'>
+            <view>
+                <text>错过本轮{{total_points}}积分</text>
+            </view>
+            <view>
+                <text>下一轮积分翻倍，快来竞猜</text>
+            </view>
+            <view>
+                <navigator url='/pages/details/details'>
+                    <text style="text-decoration:underline;">了解更多奖品</text>
+                </navigator>
+            </view>
+        </view>
+        <image mode='widthFix' style="width:286rpx;" class='fans_title' src='../../images/fans_title.png'></image>
+        <image class='close' style='width:57rpx;' bindtap='popup_missed_hide' mode='widthFix' src='../../images/shade_close_btn.png'></image>
+    </view>
+</view>
+<view class='shade' style="display:{{popup_gameover_missed?'flex':'none'}}">
+    <view class='gameover_missed'>
+        <image mode='widthFix' style='width:649rpx;' src='../../images/guessing_bg.png'></image>
+        <image mode='widthFix' class='missed_title' style='width:253rpx;' src='../../images/missed_title.png'></image>
+        <view class='team_1'>
+            <text class='team_1_name' style="top:-20rpx;">{{guessingDatas.team1_name}}</text>
+            <block wx:if="{{guessingDatas.win_team_id == guessingDatas.team1_id}}">
+                <image mode='widthFix' class='team_1_bg' style='width:153rpx;' src='../../images/shade_win_bg.png'></image>
+            </block>
+            <block wx:else>
+                <image mode='widthFix' class='team_1_bg' style='width:153rpx;top:46rpx;' src='../../images/large_border.png'></image>
+            </block>
+            <view class='team_image_url' style="width:{{guessingDatas.win_team_id == guessingDatas.team2_id?'140rpx':'130rpx'}};height:{{guessingDatas.win_team_id == guessingDatas.team2_id?'185rpx':'152rpx'}};top:{{guessingDatas.win_team_id == guessingDatas.team2_id?'42rpx':'50rpx'}}">
+                <image mode='widthFix' wx:if="{{guessingDatas.team1_id}}" style='width:70rpx;' src='../../images/teams/{{guessingDatas.team1_id}}.png'></image>
+            </view>
+            <text class='team_1_score'>{{guessingDatas.team1_score}}</text>
+        </view>
+        <image mode='widthFix' class='line' style='width:17rpx;' src='../../images/line.png'></image>
+        <view class='team_2'>
+            <text class='team_2_name' style="top:-20rpx;">{{guessingDatas.team2_name}}</text>
+            <block wx:if="{{guessingDatas.win_team_id != guessingDatas.team2_id}}">
+                <image mode='widthFix' class='team_2_bg' style='width:153rpx;' src='../../images/large_border.png'></image>
+            </block>
+            <block wx:else>
+                <image mode='widthFix' class='team_2_bg' style='width:153rpx;top:6rpx;' src='../../images/shade_win_bg.png'></image>
+            </block>
+            <view class='team_image_url' style="width:{{guessingDatas.win_team_id != guessingDatas.team2_id?'140rpx':'130rpx'}}">
+                <image mode='widthFix' wx:if="{{guessingDatas.team2_id}}" src='../../images/teams/{{guessingDatas.team2_id}}.png' style='width:70rpx;'></image>
+            </view>
+            <text class='team_2_score'>{{guessingDatas.team2_score}}</text>
+        </view>
+        <view class='letter'>
+            <view>
+                <text>错过本轮{{total_points}}积分</text>
+            </view>
+            <view>
+                <text>下一轮积分翻倍，快来竞猜</text>
+            </view>
+            <view>
+                <navigator url='/pages/details/details'>
+                    <text style="text-decoration:underline;">了解更多奖品</text>
+                </navigator>
+            </view>
+        </view>
+        <image mode='widthFix' style="width:286rpx;" class='fans_title' src='../../images/fans_title.png'></image>
+        <image class='close' style='width:57rpx;' bindtap='popup_gameover_missed_hide' mode='widthFix' src='../../images/shade_close_btn.png'></image>
+    </view>
+</view>
+<view class='shade' style="display:{{popup_guess_error?'flex':'none'}}">
+    <view class='guess_error'>
+        <image mode='widthFix' style='width:649rpx;' src='../../images/guessing_bg.png'></image>
+        <image mode='widthFix' class='guess_error_title' style='width:253rpx;' src='../../images/guess_error_title.png'></image>
+        <view class='team_1'>
+            <text class='team_1_name' style="top:-20rpx;">{{guessingDatas.team1_name}}</text>
+            <block wx:if="{{guessingDatas.predict_team_id != guessingDatas.team1_id}}">
+                <image mode='widthFix' class='team_1_bg' style='width:153rpx;' src='../../images/shade_win_bg.png'></image>
+            </block>
+            <block wx:else>
+                <image mode='widthFix' class='team_2_bg' style='width:153rpx;left:0;' src='../../images/finals_team_bg_active.png'></image>
+            </block>
+            <view class='team_image_url' style="width:{{guessingDatas.predict_team_id != guessingDatas.team1_id?'130rpx':'140rpx'}};height:{{guessingDatas.predict_team_id != guessingDatas.team1_id?'150rpx':'185rpx'}};top:{{guessingDatas.predict_team_id != guessingDatas.team1_id?'50rpx':'42rpx'}}">
+                <image mode='widthFix' style='width:70rpx;' wx:if="{{guessingDatas.win_team_id}}" src='../../images/teams/{{guessingDatas.team1_id}}.png'></image>
+            </view>
+            <text class='team_1_score'>{{guessingDatas.team1_score}}</text>
+        </view>
+        <image mode='widthFix' class='line' style='width:17rpx;' src='../../images/line.png'></image>
+        <view class='team_2'>
+            <text class='team_2_name' style="top:-20rpx;">{{guessingDatas.team2_name}}</text>
+            <block wx:if="{{guessingDatas.predict_team_id == guessingDatas.team2_id}}">
+                <image mode='widthFix' class='team_2_bg' style='width:153rpx;' src='../../images/finals_team_bg_active.png'></image>
+            </block>
+            <block wx:else>
+                <image mode='widthFix' class='team_2_bg' style='width:153rpx;top:9rpx;' src='../../images/shade_win_bg.png'></image>
+            </block>
+            <view class='team_image_url' style="width:{{guessingDatas.predict_team_id != guessingDatas.team2_id?'130rpx':'140rpx'}}">
+                <image mode='widthFix' wx:if="{{guessingDatas.win_team_id}}" src='../../images/teams/{{guessingDatas.team2_id}}.png' style='width:70rpx;'></image>
+            </view>
+            <text class='team_2_score'>{{guessingDatas.team2_score}}</text>
+        </view>
+        <view class='letter'>
+            <view>
+                <text>{{guessingDatas.predict_team_name}}告负，再接再厉</text>
+            </view>
+            <view>
+                <text>下一轮积分翻倍，快来竞猜</text>
+            </view>
+            <view>
+                <navigator url='/pages/details/details'>
+                    <text style="text-decoration:underline;">了解更多奖品</text>
+                </navigator>
+            </view>
+        </view>
+        <image mode='widthFix' style="width:286rpx;" class='fans_title' src='../../images/fans_title.png'></image>
+        <image class='close' style='width:57rpx;' bindtap='popup_guess_error_hide' mode='widthFix' src='../../images/shade_close_btn.png'></image>
+    </view>
+</view>
+<view class='shade' style="display:{{popup_guess_right?'flex':'none'}}">
+    <view class='guess_right'>
+        <image mode='widthFix' style='width:649rpx;' src='../../images/guessing_bg.png'></image>
+        <image mode='widthFix' class='guess_right_title' style='width:253rpx;' src='../../images/guess_right_title.png'></image>
+        <view class='team_1'>
+            <text class='team_1_name' style="top:-20rpx;">{{guessingDatas.team1_name}}</text>
+            <block wx:if="{{guessingDatas.win_team_id != guessingDatas.team1_id}}">
+                <image mode='widthFix' class='team_1_bg' style='width:153rpx;' src='../../images/finals_team_bg.png'></image>
+            </block>
+            <block wx:else>
+                <image mode='widthFix' class='team_1_bg' style='width:153rpx; top:0;' src='../../images/shade_win_bg_light.png'></image>
+            </block>
+            <view class='team_image_url' style='width:{{guessingDatas.win_team_id == guessingDatas.team1_id?"130rpx":"140rpx"}};height:{{guessingDatas.win_team_id == guessingDatas.team1_id?"155rpx":"185rpx"}};top:{{guessingDatas.win_team_id == guessingDatas.team1_id?"50rpx":"42rpx"}}'>
+                <image mode='widthFix' wx:if="{{guessingDatas.win_team_id}}" style='width:70rpx;' src='../../images/teams/{{guessingDatas.team1_id}}.png'></image>
+            </view>
+            <text class='team_1_score'>{{guessingDatas.team1_score}}</text>
+        </view>
+        <image mode='widthFix' class='line' style='width:17rpx;' src='../../images/line.png'></image>
+        <view class='team_2'>
+            <text class='team_2_name' style="top:-20rpx;">{{guessingDatas.team2_name}}</text>
+            <block wx:if="{{guessingDatas.win_team_id == guessingDatas.team2_id}}">
+                <image mode='widthFix' class='team_2_bg' style='width:153rpx;' src='../../images/shade_win_bg_light.png'></image>
+            </block>
+            <block wx:else>
+                <image mode='widthFix' class='team_2_bg' style='width:153rpx;top:45rpx;' src='../../images/finals_team_bg.png'></image>
+            </block>
+            <view class='team_image_url' style='width:130rpx;top:35rpx;'>
+                <image mode='widthFix' wx:if="{{guessingDatas.win_team_id}}" src='../../images/teams/{{guessingDatas.team2_id}}.png' style='width:70rpx;'></image>
+            </view>
+            <text class='team_2_score'>{{guessingDatas.team2_score}}</text>
+        </view>
+        <view class='letter'>
+            <view>
+                <text>{{guessingDatas.predict_team_name}}晋级，竞猜成功！</text>
+            </view>
+            <view>
+                <text>奖品：{{guessingDatas.winners_points}}积分</text>
+            </view>
+            <view>
+                <text style='font-size:24rpx;'>所有奖品将于当天15点发放</text>
+            </view>
+            <view>
+                <text style='font-size:24rpx;'>共{{guessingDatas.winners}}位赢家</text>
+            </view>
+            <view>
+                <navigator url='/pages/details/details'>
+                    <text style="text-decoration:underline;">了解更多奖品</text>
+                </navigator>
+            </view>
+        </view>
+        <navigator url='/pages/myawards/myawards'>
+            <image mode='widthFix' class='fans_btn' style='width:295rpx;' src='../../images/prize_btn.png'></image>
+        </navigator>
+        <image class='close' style='width:57rpx;' bindtap='popup_guess_right_hide' mode='widthFix' src='../../images/shade_close_btn.png'></image>
+    </view>
+</view>

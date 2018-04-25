@@ -1,0 +1,31 @@
+<!--pages/index/index.wxml-->
+<view class='home'>
+    <image class="home-bg" mode='aspectFill' src='../../images/home-bg.jpg'></image>
+
+    <view>
+        <view class='home-box-1'>
+            <navigator open-type="redirect" hover-class="none" url='/pages/home/home'>
+                <image class="home-1" src='../../images/home-1.png'></image>
+            </navigator>
+        </view>
+        <view class='home-box-2'>
+            <image class="home-2" src='../../images/home-2.png'></image>
+        </view>
+        <image bindtap='toQuestion' class="home-3" src='../../images/home-3.png'></image>
+    </view>
+
+    <view class='home-tip' wx:if="{{isHide}}">
+        <view class='home-popup'>
+            <image bindtap='closePopup' class="home-close" src='../../images/home-close.png'></image>
+            <image class="home-popup-bg" src='../../images/home-popup.jpg'></image>
+            <view class='home-btn-box'>
+                <image bindtap='closePopup' class="home-btn" src='../../images/home-btn.png'></image>
+            </view>
+        </view>
+    </view>
+</view>
+
+<image src="../../images/loading_full.png" style='position: absolute;width:0;height:0;opacity:0;'></image>
+<image src="../../images/title.png" style='position: absolute;width:0;height:0;opacity:0;'></image>
+
+

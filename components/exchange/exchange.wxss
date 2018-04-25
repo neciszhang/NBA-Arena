@@ -1,0 +1,355 @@
+/* 这里的样式只应用于这个自定义组件 */
+
+.exchange {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.6);
+  font-family: 'MFJiaHei';
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.exchange-content {
+  width: 649rpx;
+  height: 1003rpx;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  margin-top: 106rpx;
+}
+
+.exchange-bg {
+  width: 649rpx;
+  height: 1003rpx;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 0;
+}
+
+.exchange-close {
+  width: 57rpx;
+  height: 66rpx;
+  position: absolute;
+  z-index: 1;
+  right: 25rpx;
+  top: 23rpx;
+}
+
+.exchange-model-1 {
+  position: relative;
+}
+
+.model-1-title {
+  color: #182b53;
+  font-size: 56rpx;
+  text-align: center;
+  padding-top: 75rpx;
+  padding-bottom: 68rpx;
+  line-height: 1;
+}
+
+.model-1-form {
+  width: 482rpx;
+  margin: 0 auto;
+  color: #142851;
+  font-size: 21rpx;
+}
+
+.model-1-form-phcolor{
+  color: #142851;
+}
+
+.model-1-form-1 {
+  height: 65rpx;
+  background: white;
+  line-height: 65rpx;
+  padding-left: 27rpx;
+}
+
+.model-1-form-error {
+  height: 60rpx;
+  position: relative;
+}
+
+.model-1-form-error-text {
+  height: 60rpx;
+  position: absolute;
+  top: 9rpx;
+  color: #df0013;
+  font-size: 24rpx;
+  line-height: 1;
+}
+
+.model-1-form-box {
+  overflow: hidden;
+}
+
+.model-1-form-select {
+  float: left;
+  width: 157rpx;
+  height: 65rpx;
+  line-height: 65rpx;
+  background: white;
+  position: relative;
+  padding-left: 27rpx;
+  padding-right: 35rpx;
+  box-sizing: border-box;
+  margin-right: 7rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.model-1-form-select:last-child {
+  float: right;
+  margin-right: 0;
+}
+
+.model-1-form-arrow {
+  position: absolute;
+  width: 24rpx;
+  height: 13rpx;
+  right: 11rpx;
+  top: 26rpx;
+}
+
+.mode-1-form-tip {
+  padding-left: 27rpx;
+  padding-top: 17rpx;
+  line-height: 1;
+}
+
+.mode-1-form-submit {
+  margin-top: 90rpx;
+  text-align: center;
+  line-height: 0;
+}
+
+.mode-1-form-submit-btn {
+  width: 295rpx;
+  height: 80rpx;
+}
+
+.model-1-form-error-border {
+  border: 1rpx solid #df0013;
+}
+
+.model-1-word-box {
+  overflow: hidden;
+  margin-top: 220rpx;
+  text-align: center;
+  line-height: 0;
+}
+
+.model-1-tip-img {
+  width: 295rpx;
+  height: 181rpx;
+}
+
+.model-1-tip-word {
+  margin-top: 177rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #142851;
+  line-height: 1.2;
+}
+
+.model-1-tip-email {
+  font-size: 18rpx;
+}
+
+.model-1-return-box {
+  margin-top: 165rpx;
+  text-align: center;
+  line-height: 0;
+}
+
+.model-1-return-img {
+  width: 295rpx;
+  height: 80rpx;
+}
+
+.exchange-model-2 {
+  position: relative;
+}
+
+.model-2-logo-box {
+  margin-top: 70rpx;
+  text-align: center;
+  line-height: 0;
+}
+
+.model-2-logo-img {
+  width: 116rpx;
+  height: 146rpx;
+}
+
+.model-2-content {
+  overflow: hidden;
+  margin-top: 76rpx;
+  color: #142851;
+  font-size: 50rpx;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.model-2-tip-word {
+  margin-top: 72rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #142851;
+  line-height: 1.2;
+}
+
+.model-2-tip-info {
+  margin-top: 85rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #142851;
+  line-height: 1;
+}
+
+.model-2-line {
+  text-decoration: underline;
+}
+
+.model-2-return-box {
+  margin-top: 40rpx;
+  text-align: center;
+  line-height: 0;
+}
+
+.exchange-model-3 {
+  position: relative;
+}
+
+.model-3-logo-box {
+  margin-top: 79rpx;
+  text-align: center;
+  line-height: 0;
+}
+
+.model-3-logo-img {
+  width: 149rpx;
+  height: 130rpx;
+}
+
+.model-3-content {
+  overflow: hidden;
+  margin-top: 76rpx;
+  color: #142851;
+  font-size: 50rpx;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.model-3-content-2 {
+  font-size: 33rpx;
+}
+
+.model-3-content-3 {
+  font-size: 35rpx;
+}
+
+.model-3-tip-word1 {
+  margin-top: 50rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #142851;
+  line-height: 1.2;
+}
+
+.model-3-tip-word2 {
+  margin-top: 22rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #142851;
+  line-height: 1.2;
+}
+
+.model-3-return-box {
+  margin-top: 10rpx;
+  text-align: center;
+  line-height: 0;
+}
+
+.exchange-model-4 {
+  position: relative;
+}
+
+.model-4-logo-box {
+  margin-top: 89rpx;
+  text-align: center;
+  line-height: 0;
+}
+
+.model-4-logo-img {
+  width: 188rpx;
+  height: 107rpx;
+}
+
+.model-4-content {
+  overflow: hidden;
+  margin-top: 57rpx;
+  color: #142851;
+  font-size: 50rpx;
+  text-align: center;
+  line-height: 1;
+}
+.model-4-content-1 {
+  margin-top: 10rpx;
+  font-size: 36rpx;
+}
+.model-4-content-2 {
+  margin-top: 79rpx;
+  font-size: 33rpx;
+}
+.model-4-content-3 {
+  margin-top: 18rpx;
+  font-size: 35rpx;
+}
+.model-4-tip-word1 {
+  margin-top: 58rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #142851;
+  line-height: 1.2;
+}
+
+.model-4-search-box {
+  margin-top: 90rpx;
+  text-align: center;
+  line-height: 0;
+}
+
+.exchange-model-5 {
+  position: relative;
+}
+
+.model-5-content {
+  overflow: hidden;
+  margin-top: 336rpx;
+  color: #142851;
+  font-size: 60rpx;
+  text-align: center;
+  line-height: 1;
+}
+
+.model-5-tip-word1 {
+  margin-top: 177rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #142851;
+  line-height: 1.4;
+}
+.model-5-retry-box {
+  margin-top: 166rpx;
+  text-align: center;
+  line-height: 0;
+}

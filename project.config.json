@@ -1,0 +1,74 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.91",
+	"appid": "wxe7661fefd1a6ac3d",
+	"projectname": "nbah5",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 5,
+			"list": [
+				{
+					"id": -1,
+					"name": "home",
+					"pathName": "pages/home/home",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "myawards",
+					"pathName": "pages/myawards/myawards",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "details",
+					"pathName": "pages/details/details",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "finals",
+					"pathName": "pages/finals/finals",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": ""
+				}
+			]
+		}
+	}
+}

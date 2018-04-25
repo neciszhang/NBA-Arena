@@ -1,0 +1,92 @@
+/* pages/details/details.wxss */
+
+page {
+    height: 100%;
+    overflow: hidden;
+}
+
+.details {
+    position: relative;
+    height: 100%;
+}
+
+.details-bg {
+    width: 100%;
+    height: 100%;
+}
+
+.details-group-bg {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 85rpx;
+}
+
+.details-left {
+    color: #616161;
+    font-size: 35rpx;
+    width: 50%;
+    float: left;
+    text-align: center;
+    line-height: 67rpx;
+    font-weight: bold;
+}
+
+.details-right {
+    color: #616161;
+    font-size: 35rpx;
+    width: 50%;
+    float: left;
+    text-align: center;
+    line-height: 67rpx;
+    font-weight: bold;
+}
+
+.details-group {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.details .active {
+    color: #2d49c3;
+}
+
+.details-1 {
+    position: absolute;
+    width: 610rpx;
+    padding-left: 70rpx;
+    padding-right: 70rpx;
+    top: 100rpx;
+    height: 950rpx;
+}
+
+.details-1 .title {
+    color: #05428c;
+    font-size: 30rpx;
+}
+
+.details-1 .title-small {
+    color: #05428c;
+    font-size: 25rpx;
+}
+
+.details-1 .more {
+    color: #132952;
+    font-size: 26rpx;
+    margin-bottom: 32rpx;
+}
+
+.details-return {
+    color: #132952;
+    text-decoration: underline;
+    font-size: 30rpx;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 1150rpx;
+}

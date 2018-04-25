@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "component-exchange": "/components/exchange/exchange"
+  }
+}
