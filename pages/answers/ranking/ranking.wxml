@@ -1,0 +1,129 @@
+<view class='maincontent'>
+    <view class='maincontent_bg'></view>
+    <view class='tabs'>
+        <block>
+            <view class='friends_tabs' style='display:{{show_type == "friends"?"block":"none"}}'>
+                <image class='tabs_bg' src='http://cdn.yooqapp.com/rc/games/ranking_tab_1.png'></image>
+                <view class='tabs_name_1_active' bindtap='handle_click_tabs' data-type='friends'>
+                </view>
+                <view class='tabs_name_2' bindtap='handle_click_tabs' data-type='all'>
+                </view>
+            </view>
+        </block>
+        <block>
+            <view class='all_tabs' style='display:{{show_type != "friends"?"block":"none"}}'>
+                <image class='tabs_bg' src='http://cdn.yooqapp.com/rc/games/ranking_tab_2.png'></image>
+                <view class='tabs_name_1' bindtap='handle_click_tabs' data-type='friends'>
+                </view>
+                <view class='tabs_name_2_active' bindtap='handle_click_tabs' data-type='all'></view>
+            </view>
+        </block>
+    </view>
+    <!-- <view class='mine_ranking' wx:if="{{friendsUserPosition!=''}}" style='display:{{show_type == "friends"?"block":"none"}}'>
+        <view class='ranking_content'>
+            <view class='num'>{{friendsUserPosition.position}}</view>
+            <avatar scale="0.86" left_pos="4" top_pos="100" avatar_img="{{friendsUserPosition.wechatPicUrl}}"></avatar>
+            <view class='messages'>
+                <view>
+                    <text class='option option1 ranking_name'>{{friendsUserPosition.name}}</text>
+                    <text class='option option2'>胜利<text class='word_highlight'>{{friendsUserPosition.winCount}}</text>场</text>
+                </view>
+                <view>
+                    <text class='option option1'>总答对<text class='word_highlight'>{{friendsUserPosition.answerCorrectCount}}</text>题</text>
+                    <text class='option option2'>正确率<text class='word_highlight'>{{friendsUserPosition.correctRate }}%</text></text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='mine_ranking' wx:if="{{allUserPosition != ''}}" style='display:{{show_type != "friends"?"block":"none"}}'>
+        <view class='ranking_content'>
+            <view class='num'>{{allUserPosition.position}}</view>
+            <avatar scale="0.86" left_pos="4" top_pos="100" avatar_img="{{friendsUserPosition.wechatPicUrl}}"></avatar>
+            <view class='messages'>
+                <view>
+                    <text class='option option1 ranking_name'>{{allUserPosition.name}}</text>
+                    <text class='option option2'>昨日胜利<text class='word_highlight'>{{allUserPosition.winCount}}</text>场</text>
+                </view>
+                <view>
+                    <text class='option option1'>昨日答对<text class='word_highlight'>{{allUserPosition.answerCorrectCount}}</text>题</text>
+                    <text class='option option2'>正确率<text class='word_highlight'>{{allUserPosition.correctRate}}%</text></text>
+                </view>
+            </view>
+        </view>
+    </view> -->
+    <view class='ranking_list' style='display:{{show_type == "friends"?"block":"none"}}'>
+        <view class='friends_ranking' style='height:100%;'>
+            <block wx:if="{{friends_ranking.length > 0}}">
+                <scroll-view style='height: 100%;' scroll-y="true">
+                        <view class='item-box'>
+                    <block wx:for="{{friends_ranking}}" wx:key="{{index}}">
+                        <view class='item {{index == 0?"item1":""}} {{index == 1?"item2":""}} {{index == 2?"item3":""}} {{index > 2?"item4":""}}'>
+                            <text class='ranking_num'>{{index+1}}</text>
+                            <avatar scale="0.86" left_pos="4" top_pos="100" avatar_img="{{item.wechatPicUrl}}"></avatar>
+                            <view class='messages'>
+                                <view>
+                                    <text class='option option1 ranking_name'>{{item.name}}</text>
+                                    <text class='option option2'>胜利<text class='word_highlight'>{{item.winCount}}</text>场</text>
+                                </view>
+                                <view>
+                                    <text class='option option1'>答对<text class='word_highlight'>{{item.answerCorrectCount}}</text>题</text>
+                                    <text class='option option2'>正确率<text class='word_highlight'>{{item.correctRate}}%</text></text>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                        </view>
+                </scroll-view>
+            </block>
+            <block wx:if="{{friends_ranking_null == true}}">
+                <view class='friends_ranking_null' style='text-align:center;'>抱歉您暂时没有好友</view>
+            </block>
+        </view>
+    </view>
+    <view class='ranking_list' style='display:{{show_type != "friends"?"block":"none"}}'>
+        <view class='all_ranking' style='height:100%;'>
+            <block wx:if="{{all_ranking.length > 0}}">
+                <scroll-view style='height: 100%;' scroll-y="true">
+                        <view class='item-box'>
+                    <block wx:for="{{all_ranking}}" wx:key="{{index}}">
+                        <view class='item {{index == 0?"item1":""}} {{index == 1?"item2":""}} {{index == 2?"item3":""}} {{index > 2?"item4":""}}'>
+                            <text class='ranking_num'>{{index+1}}</text>
+                            <avatar scale="0.86" left_pos="4" top_pos="100" avatar_img="{{item.wechatPicUrl}}"></avatar>
+                            <view class='messages'>
+                                <view>
+                                    <text class='option option1 ranking_name'>{{item.name}}</text>
+                                    <text class='option option2'>昨日胜利<text class='word_highlight'>{{item.winCount}}</text>场</text>
+                                </view>
+                                <view>
+                                    <text class='option option1'>昨日答对<text class='word_highlight'>{{item.answerCorrectCount}}</text>题</text>
+                                    <text class='option option2'>正确率<text class='word_highlight'>{{item.correctRate}}%</text></text>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                        </view>
+                </scroll-view>
+            </block>
+            <block wx:if="{{all_ranking_null}}">
+                <view class='all_ranking_null' style='text-align:center'>暂无数据</view>
+            </block>
+        </view>
+    </view>
+    <view class='options'>
+        <block>
+            <button class='share_btn' open-type='share' hover-class="none">
+                <image style='display:{{show_type == "friends"?"block":"none"}}' class='ranking_option_1' src='http://cdn.yooqapp.com/rc/games/ranking_invite.png'></image>
+            </button>
+        </block>
+        <block>
+            <image bindtap='rules_popup_open' style='display:{{show_type != "friends"?"block":"none"}}' class='ranking_option_2' src='http://cdn.yooqapp.com/rc/games/ranking_rules.png'></image>
+        </block>
+    </view>
+</view>
+
+<view class='rules_popup' wx:if="{{rules_popup_show}}">
+  <view class='rules_popup_bg'>
+    <image class='close_btn' bindtap='rules_popup_close' src='http://cdn.yooqapp.com/rc/games/close_btn.png'></image>
+    <image class='affirm_btn' bindtap='rules_popup_close' src='http://cdn.yooqapp.com/rc/games/affirm_btn.png'></image>
+  </view>
+</view>

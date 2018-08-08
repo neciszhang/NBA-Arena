@@ -1,0 +1,81 @@
+<view class='maincontent'>
+  <view class='maincontent_bg'></view>
+  <login show_login="{{show_login}}" bind:updata="updata" bind:closeLogin="closeLogin"></login>
+  <view class="home-page">
+    <scroll-view scroll-y style='height:100%;'>
+      <view class='content'>
+        <view class='player'>
+          <image class='avatar_bg' src='http://cdn.yooqapp.com/rc/games/avatar_bg.png'></image>
+          <image class='avatar' src='{{user_msg.wechatPicUrl}}'></image>
+          <view class='user_msg'>
+            <view class='user_name'>
+              {{user_msg.name}}
+              <image class='bind_btn' bindtap="showLogin" wx:if="{{user_msg.userStatus == 1}}" src='http://cdn.yooqapp.com/rc/games/bind_btn.png'></image>
+            </view>
+            <view class='user_score'>
+              积分：{{user_msg.points}}
+              <image class='level' wx:if="{{user_msg.userLevel == 1}}" src='http://cdn.yooqapp.com/rc/games/level_1.png'></image>
+              <image class='level' wx:if="{{user_msg.userLevel == 2}}" src='http://cdn.yooqapp.com/rc/games/level_2.png'></image>
+              <image class='level' wx:if="{{user_msg.userLevel == 3}}" src='http://cdn.yooqapp.com/rc/games/level_3.png'></image>
+              <image class='level' wx:if="{{user_msg.userLevel == 4}}" src='http://cdn.yooqapp.com/rc/games/level_4.png'></image>
+            </view>
+            <view class='user_session'>每日积分场次：{{user_msg.pointGameCount}}/{{user_msg.pointGameCountMax}}</view>
+          </view>
+        </view>
+        <view class='setting' bindtap='skip_setting'>
+          <image src='http://cdn.yooqapp.com/rc/games/setting.png'></image>
+        </view>
+        <view class='advertising'>
+          <swiper autoplay circular style='overflow:hidden;height:{{isIpx?360:220}}rpx;'>
+              <swiper-item bindtap="skip" data-link="{{item.link}}" data-type="{{item.type}}" wx:key="{{index}}" wx:for="{{isIpx?news.banner.ipx:news.banner.default}}">
+                <image src='{{item.imgUrl}}'></image>
+              </swiper-item>
+          </swiper>
+        </view>
+        <view class='answer_content'>
+          <image class='answer_btn' bindtap='skip_matching' src='http://cdn.yooqapp.com/rc/games/answer_btn.png'></image>
+          <image class='ranking_btn' bindtap='skip_ranking' src='http://cdn.yooqapp.com/rc/games/ranking_btn.png'></image>
+          <button class='share_btn' open-type='share' hover-class="none">
+            <image class='invite_btn' src='http://cdn.yooqapp.com/rc/games/invite_btn.png'></image>
+          </button>
+        </view>
+        <view class='other_content'>
+          <image class='questions_btn' bindtap='skip_question_bank' src='http://cdn.yooqapp.com/rc/games/questions_btn.png'></image>
+          <image class='shopping_btn' bindtap='skip_shop' src='http://cdn.yooqapp.com/rc/games/shopping_btn.png'></image>
+          <image class='guessing_btn' bindtap='skip' data-type="{{news.other[0].type}}" data-link="{{news.other[0].link}}" src='http://cdn.yooqapp.com/rc/games/guessing_btn.png'></image>
+        </view>
+        <view class='inform_content'>
+          <image class='inform_bg' src='http://cdn.yooqapp.com/rc/games/inform_bg.png'></image>
+          <swiper class='inform_msgs' vertical="true" autoplay circular>
+            <block wx:for="{{news.news}}" wx:key="{{index}}">
+              <swiper-item bindtap="skip" data-type="{{item.type}}" data-link="{{item.link}}">{{item.name}}</swiper-item>
+            </block>
+          </swiper>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+
+<view class='answer_over_popup' wx:if="{{answer_count_over}}">
+  <view class='answer_over_bg'>
+    <image class='close_btn' bindtap='answer_count_over_close' src='http://cdn.yooqapp.com/rc/games/close_btn.png'></image>
+    <image class='affirm_btn' bindtap='answer_count_over_close' src='http://cdn.yooqapp.com/rc/games/affirm_btn.png'></image>
+  </view>
+</view>
+
+
+<view class='answer_over_popup' wx:if="{{answer_count_over2}}">
+  <view class='answer_over2_bg'>
+    <image class='close_btn' bindtap='answer_count_over2_close' src='http://cdn.yooqapp.com/rc/games/close_btn.png'></image>
+    <image class='affirm_btn' bindtap='answer_count_over2_close' src='http://cdn.yooqapp.com/rc/games/affirm_btn.png'></image>
+  </view>
+</view>
+
+
+<view class='answer_over_popup' wx:if="{{today_answer_over}}">
+  <view class='today_over_bg'>
+    <image class='close_btn' bindtap='today_answer_over_close' src='http://cdn.yooqapp.com/rc/games/close_btn.png'></image>
+    <image class='affirm_btn' bindtap='today_answer_over_close' src='http://cdn.yooqapp.com/rc/games/affirm_btn.png'></image>
+  </view>
+</view>

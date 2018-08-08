@@ -5,7 +5,6 @@
     <navigator open-type="navigateBack">
         <image class='finals-return' src='../../images/returnhome.png'></image>
     </navigator>
-
     <!-- 竞猜中 status1, predict_team_id == null -->
     <view wx:if="{{status1}}" class='finals-time-box'>
         <view class='finals-time-title'>竞猜倒计时</view>
@@ -37,7 +36,6 @@
             <text class='finals-time-score-word'>积分</text>
         </view>
     </view>
-
     <!-- 竞猜中，已提交  status2, predict_team_id != null -->
     <view class='finals-success-box' wx:if="{{status2}}">
         <view class='finas-success-word'>你已成功提交！</view>
@@ -47,10 +45,11 @@
             <text class='finals-time-score-word'>积分</text>
         </view>
         <view class='finals-share-box'>
-            <image class="finals-share-btn" src='../../images/finals_share_btn.png'></image>
+            <button open-type='share' size="{{defaultSize}}" class='guessed_share_btn'>
+                <image class="finals-share-btn" src='../../images/finals_share_btn.png'></image>
+            </button>
         </view>
     </view>
-
     <!-- 征战中，且没竞猜  status3, predict_team_id == null -->
     <view class='finals-confirm-box' wx:if="{{status3}}">
         <view class='finals-confirm-word'>错过本次竞猜！
@@ -58,10 +57,9 @@
         <view class='finals-confirm-word'>前往球迷圈，参与更多活动，</view>
         <view class='finals-confirm-word'>赢取更多积分及奖品。</view>
         <view class='finals-share-box'>
-            <image bindtap='toWebView' class="finals-share-btn" src='../../images/finals_toqiumi_btn.png'></image>
+            <image bindtap='toWebView' class="finals-share-btn" src=''></image>
         </view>
     </view>
-
     <!-- 已竞猜且结果正确 status4，predict_team_id == win_team_id -->
     <view class='finals-confirm-box' wx:if="{{status4}}">
         <view class='finals-confirm-word'>{{champion}}夺冠，所有竞猜正确！
@@ -69,10 +67,11 @@
         <view class='finals-confirm-word'>奖励：{{advPredict.winners_points}}积分</view>
         <view class='finals-confirm-word2'>共{{advPredict.winner}}位赢家</view>
         <view class='finals-share-box'>
-            <image class="finals-share-btn" src='../../images/finals_checkall_btn.png'></image>
+            <navigator url="/pages/myawards/myawards">
+                <image class="finals-share-btn" src='../../images/finals_checkall_btn.png'></image>
+            </navigator>
         </view>
     </view>
-
     <!-- 已竞猜且结果错误 status5，predict_team_id != win_team_id -->
     <view class='finals-confirm-box' wx:if="{{status5}}">
         <view class='finals-confirm-word'>你与大奖失之交臂！
@@ -80,49 +79,33 @@
         <view class='finals-confirm-word'>前往球迷圈，参与更多活动，</view>
         <view class='finals-confirm-word'>赢取更多积分及奖品。</view>
         <view class='finals-share-box'>
-            <image bindtap='toWebView' class="finals-share-btn" src='../../images/finals_toqiumi_btn.png'></image>
+            <image bindtap='toWebView' class="finals-share-btn" src=''></image>
         </view>
     </view>
-
-
-
-
-
-
-
-
-
     <!-- 西部 -->
     <view class="finals-vote-box {{errorwest==true?'error':''}}">
-
         <!-- 背景 -->
         <image wx:if="{{showWest || status2 || status4 || status5}}" class="finals-bg-2" src='../../images/finals_bg_2.png'></image>
         <image wx:else class="finals-bg-1" src='../../images/finals_bg_1.png'></image>
-
-
-
         <!-- 标题 -->
         <image class="finals-vote-title" src='../../images/finals_west_word.png'></image>
-
-
         <!-- 投票内容 -->
         <view class='finals-vote-content'>
             <view class='finals-vote-content-box'>
                 <view class='finals-vote-content-left'>
                     <view class='finals-vote-content-teamname'>{{guessingDatas[1].team1_name}}</view>
                     <view catchtap='clickWinner' data-show="showWest" class='finals-vote-content-teambox' data-team_id="{{guessingDatas[1].team1_id}}" data-dir='left'>
-                        <block wx:if="{{guessingDatas[1].team1_id == guessingDatas[1].win_team_id}}">
-                            <image class="finals-vote-content-winteambg" wx:if="{{guessingDatas[1].predict_team_id == guessingDatas[1].team1_id}}" src='../../images/finals_winteam_bg_active.png'></image>
+                        <block wx:if="{{guessingDatas[1].team1_id == advPredict.win_team_id_round3_series1}}">
+                            <image class="finals-vote-content-winteambg" wx:if="{{advPredict.predict_team_id_round3_series1 == guessingDatas[1].team1_id}}" src='../../images/finals_winteam_bg_active.png'></image>
                             <image class="finals-vote-content-winteambg" wx:else src='../../images/finals_winteam_bg.png'></image>
                         </block>
                         <block wx:else>
-                            <image class="finals-vote-content-teambg" wx:if="{{guessingDatas[1].predict_team_id == guessingDatas[1].team1_id || chooseWestTeam == guessingDatas[1].team1_id }}" src='../../images/finals_team_bg_active.png'></image>
+                            <image class="finals-vote-content-teambg" wx:if="{{advPredict.predict_team_id_round3_series1 == guessingDatas[1].team1_id || chooseWestTeam == guessingDatas[1].team1_id }}" src='../../images/finals_team_bg_active.png'></image>
                             <image class="finals-vote-content-teambg" wx:else src='../../images/finals_team_bg.png'></image>
                         </block>
                         <image class='finals-vote-teamlogo' src="{{finalsFr.logoSrc(guessingDatas[1].team1_id)}}"></image>
                     </view>
                 </view>
-
                 <view class='finals-vote-content-middle finals-vote-mid-scoretop'>
                     <view class='finals-vote-mid-score'>
                         <text>{{guessingDatas[1].team1_score}}</text>
@@ -133,25 +116,21 @@
                     <view class='finals-vote-mid-word2' wx:if="{{status1 && !showWestScore}}">点击队标，竞猜胜者</view>
                     <view class='finals-vote-select-tip' wx:if="{{status2 || status4 || status5}}">你选择</view>
                 </view>
-
                 <view class='finals-vote-content-left'>
                     <view class='finals-vote-content-teamname'>{{guessingDatas[1].team2_name}}</view>
                     <view catchtap='clickWinner' data-show="showWest" class='finals-vote-content-teambox' data-team_id="{{guessingDatas[1].team2_id}}" data-dir='right'>
-                        <block wx:if="{{guessingDatas[1].team2_id == guessingDatas[1].win_team_id}}">
-                            <image class="finals-vote-content-winteambg" wx:if="{{guessingDatas[1].predict_team_id == guessingDatas[1].team2_id}}" src='../../images/finals_winteam_bg_active.png'></image>
+                        <block wx:if="{{guessingDatas[1].team2_id == advPredict.win_team_id_round3_series1}}">
+                            <image class="finals-vote-content-winteambg" wx:if="{{advPredict.predict_team_id_round3_series1 == guessingDatas[1].team2_id}}" src='../../images/finals_winteam_bg_active.png'></image>
                             <image class="finals-vote-content-winteambg" wx:else src='../../images/finals_winteam_bg.png'></image>
                         </block>
                         <block wx:else>
-                            <image class="finals-vote-content-teambg" wx:if="{{guessingDatas[1].predict_team_id == guessingDatas[1].team2_id || chooseWestTeam == guessingDatas[1].team2_id }}" src='../../images/finals_team_bg_active.png'></image>
+                            <image class="finals-vote-content-teambg" wx:if="{{advPredict.predict_team_id_round3_series1 == guessingDatas[1].team2_id || chooseWestTeam == guessingDatas[1].team2_id }}" src='../../images/finals_team_bg_active.png'></image>
                             <image class="finals-vote-content-teambg" wx:else src='../../images/finals_team_bg.png'></image>
                         </block>
                         <image class='finals-vote-teamlogo' src="{{finalsFr.logoSrc(guessingDatas[1].team2_id)}}"></image>
                     </view>
                 </view>
             </view>
-
-
-
             <view class="finals-vote-select" wx:if="{{status1 && showWestScore}}">
                 <view bindtap='clickScore' class="finals-vote-select-item {{score_active1=='1-1'?'active':''}}" data-series='3' data-active='1-1' data-show="west">
                     <image class='finals-vote-select-itembg active-bg' src='../../images/finals_score_active_bg.png'></image>
@@ -182,59 +161,54 @@
                     </view>
                 </view>
             </view>
-
-
-
-            <view wx:if="{{advPredict.predict_game_id_round3_series0}}">
+            <view wx:if="{{advPredict.predict_game_id_round3_series1 != null}}">
                 <!-- 用户竞猜选择且对的比分 -->
-                <view class="finals-vote-win-item" wx:if="{{advPredict.predict_game_id_round3_series0 == advPredict.win_game_id_round3_series0}}">
+                <view class="finals-vote-win-item" wx:if="{{advPredict.predict_game_id_round3_series1 == advPredict.win_game_id_round3_series1}}">
                     <image class='finals-vote-win-itembg inactive-bg' src='../../images/finals_score_win_bg.png'></image>
                     <view class='finals-vote-win-itemscore'>
-                        {{finalsFr.reverse(dirWest,advPredict.predict_game_id_round3_series0)}}
+                        <view wx:if='{{advPredict.predict_team_id_round3_series1 == guessingDatas[1].team1_id}}'>
+                            4:{{advPredict.predict_game_id_round3_series1}}
+                        </view>
+                        <view wx:else>{{advPredict.predict_game_id_round3_series1}}:4</view>
                     </view>
                 </view>
                 <!-- 用户竞猜选择的比分 -->
                 <view class="finals-vote-selectconfirm-item" wx:else>
                     <image class='finals-vote-select-itembg inactive-bg' src='../../images/finals_score_select_bg.png'></image>
                     <view class='finals-vote-select-itemscore'>
-                        {{finalsFr.reverse(dirWest,advPredict.predict_game_id_round3_series0)}}
+                        <view wx:if='{{advPredict.predict_team_id_round3_series1 == guessingDatas[1].team1_id}}'>
+                            4:{{advPredict.predict_game_id_round3_series1}}
+                        </view>
+                        <view wx:else>{{advPredict.predict_game_id_round3_series1}}:4</view>
                     </view>
                 </view>
             </view>
         </view>
     </view>
-
     <!-- 东部 -->
     <view class="finals-vote-box {{erroreast==true?'error':''}}">
-
         <!-- 背景 -->
         <image wx:if="{{showEast || status2 || status4 || status5}}" class="finals-bg-2" src='../../images/finals_bg_2.png'></image>
         <image wx:else class="finals-bg-1" src='../../images/finals_bg_1.png'></image>
-
-
-
         <!-- 标题 -->
         <image class="finals-vote-title" src='../../images/finals_east_word.png'></image>
-
-
         <!-- 投票内容 -->
         <view class='finals-vote-content'>
             <view class='finals-vote-content-box'>
                 <view class='finals-vote-content-left'>
                     <view class='finals-vote-content-teamname'>{{guessingDatas[0].team1_name}}</view>
                     <view catchtap='clickWinner' data-show="showEast" class='finals-vote-content-teambox' data-team_id="{{guessingDatas[0].team1_id}}" data-dir='left'>
-                        <block wx:if="{{guessingDatas[0].team1_id == guessingDatas[0].win_team_id}}">
-                            <image class="finals-vote-content-winteambg" wx:if="{{guessingDatas[0].predict_team_id == guessingDatas[0].team1_id}}" src='../../images/finals_winteam_bg_active.png'></image>
+                        <block wx:if="{{guessingDatas[0].team1_id == advPredict.win_team_id_round3_series0}}">
+                            <image class="finals-vote-content-winteambg" wx:if="{{advPredict.predict_team_id_round3_series0 == guessingDatas[0].team1_id}}" src='../../images/finals_winteam_bg_active.png'></image>
                             <image class="finals-vote-content-winteambg" wx:else src='../../images/finals_winteam_bg.png'></image>
                         </block>
                         <block wx:else>
-                            <image class="finals-vote-content-teambg" wx:if="{{guessingDatas[0].predict_team_id == guessingDatas[0].team1_id || chooseEastTeam == guessingDatas[0].team1_id }}" src='../../images/finals_team_bg_active.png'></image>
+                            <image class="finals-vote-content-teambg" wx:if="{{advPredict.predict_team_id_round3_series0 == guessingDatas[0].team1_id || chooseEastTeam == guessingDatas[0].team1_id }}" src='../../images/finals_team_bg_active.png'></image>
                             <image class="finals-vote-content-teambg" wx:else src='../../images/finals_team_bg.png'></image>
                         </block>
                         <image class='finals-vote-teamlogo' src="{{finalsFr.logoSrc(guessingDatas[0].team1_id)}}"></image>
                     </view>
                 </view>
-
                 <view class='finals-vote-content-middle finals-vote-mid-scoretop'>
                     <view class='finals-vote-mid-score'>
                         <text>{{guessingDatas[0].team1_score}}</text>
@@ -245,25 +219,21 @@
                     <view class='finals-vote-mid-word2' wx:if="{{status1 && !showEastScore}}">点击队标，竞猜胜者</view>
                     <view class='finals-vote-select-tip' wx:if="{{status2 || status4 || status5}}">你选择</view>
                 </view>
-
                 <view class='finals-vote-content-left'>
                     <view class='finals-vote-content-teamname'>{{guessingDatas[0].team2_name}}</view>
                     <view catchtap='clickWinner' data-show="showEast" class='finals-vote-content-teambox' data-team_id="{{guessingDatas[0].team2_id}}" data-dir='right'>
-                        <block wx:if="{{guessingDatas[0].team2_id == guessingDatas[0].win_team_id}}">
-                            <image class="finals-vote-content-winteambg" wx:if="{{guessingDatas[0].predict_team_id == guessingDatas[0].team2_id}}" src='../../images/finals_winteam_bg_active.png'></image>
+                        <block wx:if="{{guessingDatas[0].team2_id == advPredict.win_team_id_round3_series0}}">
+                            <image class="finals-vote-content-winteambg" wx:if="{{advPredict.predict_team_id_round3_series0 == guessingDatas[0].team2_id}}" src='../../images/finals_winteam_bg_active.png'></image>
                             <image class="finals-vote-content-winteambg" wx:else src='../../images/finals_winteam_bg.png'></image>
                         </block>
                         <block wx:else>
-                            <image class="finals-vote-content-teambg" wx:if="{{guessingDatas[0].predict_team_id == guessingDatas[0].team2_id || chooseEastTeam == guessingDatas[0].team2_id }}" src='../../images/finals_team_bg_active.png'></image>
+                            <image class="finals-vote-content-teambg" wx:if="{{advPredict.predict_team_id_round3_series0 == guessingDatas[0].team2_id || chooseEastTeam == guessingDatas[0].team2_id }}" src='../../images/finals_team_bg_active.png'></image>
                             <image class="finals-vote-content-teambg" wx:else src='../../images/finals_team_bg.png'></image>
                         </block>
                         <image class='finals-vote-teamlogo' src="{{finalsFr.logoSrc(guessingDatas[0].team2_id)}}"></image>
                     </view>
                 </view>
             </view>
-
-
-
             <view class="finals-vote-select" wx:if="{{status1 && showEastScore}}">
                 <view bindtap='clickScore' class="finals-vote-select-item {{score_active2=='1-1'?'active':''}}" data-series='3' data-active='1-1' data-show="east">
                     <image class='finals-vote-select-itembg active-bg' src='../../images/finals_score_active_bg.png'></image>
@@ -294,63 +264,56 @@
                     </view>
                 </view>
             </view>
-
-
-
-            <view wx:if="{{advPredict.predict_game_id_round3_series0}}">
+            <view wx:if="{{advPredict.predict_game_id_round3_series0 != null}}">
                 <!-- 用户竞猜选择且对的比分 -->
                 <view class="finals-vote-win-item" wx:if="{{advPredict.predict_game_id_round3_series0 == advPredict.win_game_id_round3_series0}}">
                     <image class='finals-vote-win-itembg inactive-bg' src='../../images/finals_score_win_bg.png'></image>
                     <view class='finals-vote-win-itemscore'>
-                        {{finalsFr.reverse(dirEast,advPredict.predict_game_id_round3_series0)}}
+                        <view wx:if='{{advPredict.predict_team_id_round3_series0 == guessingDatas[0].team1_id}}'>
+                            4:{{advPredict.predict_game_id_round3_series0}}
+                        </view>
+                        <view wx:else>{{advPredict.predict_game_id_round3_series0}}:4</view>
                     </view>
                 </view>
                 <!-- 用户竞猜选择的比分 -->
                 <view class="finals-vote-selectconfirm-item" wx:else>
                     <image class='finals-vote-select-itembg inactive-bg' src='../../images/finals_score_select_bg.png'></image>
                     <view class='finals-vote-select-itemscore'>
-                        {{finalsFr.reverse(dirEast,advPredict.predict_game_id_round3_series0)}}
+                        <view wx:if='{{advPredict.predict_team_id_round3_series0 == guessingDatas[0].team1_id}}'>
+                            4:{{advPredict.predict_game_id_round3_series0}}
+                        </view>
+                        <view wx:else>{{advPredict.predict_game_id_round3_series0}}:4</view>
                     </view>
                 </view>
             </view>
         </view>
     </view>
-
-
     <!-- 总决赛 -->
     <view class="finals-vote-box {{errorfinal==true?'error':''}}">
-
         <!-- 背景 -->
         <image wx:if="{{showFinal || status2 || status4 || status5}}" class="finals-bg-2" src='../../images/finals_bg_2.png'></image>
         <image wx:else class="finals-bg-1" src='../../images/finals_bg_1.png'></image>
-
-
-
         <!-- 标题 -->
         <image class="finals-vote-finallogo" src='../../images/finals_final_logo.png'></image>
-
-
         <!-- 投票内容 -->
         <view class='finals-vote-content'>
             <view class='finals-vote-content-box'>
                 <view class='finals-vote-content-left'>
                     <view class='finals-vote-content-teamname'>西部冠军</view>
-                    <view catchtap='clickWinner' data-show="showFinal" class='finals-vote-content-teambox' data-team_id="{{guessingDatas[2].team1_id}}" data-dir='left'>
-                        <block wx:if="{{guessingDatas[2].team1_id == guessingDatas[2].win_team_id}}">
-                            <image class="finals-vote-content-winteambg" wx:if="{{guessingDatas[2].predict_team_id == guessingDatas[2].team1_id}}" src='../../images/finals_winteam_bg_active.png'></image>
+                    <view catchtap='clickWinner' data-show="showFinal" class='finals-vote-content-teambox' data-team_id="{{predict_team_id_round3_series1}}" data-dir='left'>
+                        <block wx:if="{{guessingDatas[2].team1_id == advPredict.win_team_id_round4_series0 && advPredict.win_team_id_round4_series0 !== null}}">
+                            <image class="finals-vote-content-winteambg" wx:if="{{advPredict.predict_team_id_round4_series0 == guessingDatas[2].team1_id}}" src='../../images/finals_winteam_bg_active.png'></image>
                             <image class="finals-vote-content-winteambg" wx:else src='../../images/finals_winteam_bg.png'></image>
                         </block>
                         <block wx:else>
-                            <image class="finals-vote-content-teambg" wx:if="{{guessingDatas[2].predict_team_id == guessingDatas[2].team1_id || chooseFinalTeam == guessingDatas[2].team1_id }}" src='../../images/finals_team_bg_active.png'></image>
+                            <image class="finals-vote-content-teambg" wx:if="{{(advPredict.predict_team_id_round4_series0 == guessingDatas[2].team1_id && advPredict.predict_team_id_round4_series0 !== null) || chooseFinalTeam === predict_team_id_round3_series1}}" src='../../images/finals_team_bg_active.png'></image>
                             <image class="finals-vote-content-teambg" wx:else src='../../images/finals_team_bg.png'></image>
                         </block>
-
-                        <image wx:if='{{!status1}}' class='finals-vote-teamlogo' src="{{finalsFr.logoSrc(guessingDatas[2].team1_id)}}"></image>
-                        <image wx:else class='finals-vote-teamlogo' src="{{finalsFr.logoSrc(predict_team_id_round3_series0)}}"></image>
-
+                        <image wx:if='{{status1 || status2}}' class='finals-vote-teamlogo' src="{{finalsFr.logoSrc(predict_team_id_round3_series1)}}"></image>
+                        <image wx:if='{{status4 || status5}}' class='finals-vote-teamlogo' src="{{finalsFr.logoSrc(advPredict.predict_team_id_round3_series1)}}"></image>
+                        <image wx:if='{{status3}}' class='finals-vote-teamlogo' src="{{finalsFr.logoSrc(guessingDatas[2].team1_id)}}"></image>
                     </view>
                 </view>
-
                 <view class='finals-vote-content-middle finals-vote-mid-scoretop'>
                     <view class='finals-vote-mid-score'>
                         <text>{{guessingDatas[2].team1_score}}</text>
@@ -361,28 +324,24 @@
                     <view class='finals-vote-mid-word2' wx:if="{{status1 && !showFinalScore}}">点击队标，竞猜胜者</view>
                     <view class='finals-vote-select-tip' wx:if="{{status2 || status4 || status5}}">你选择</view>
                 </view>
-
                 <view class='finals-vote-content-left'>
                     <view class='finals-vote-content-teamname'>东部冠军</view>
-                    <view catchtap='clickWinner' data-show="showFinal" class='finals-vote-content-teambox' data-team_id="{{guessingDatas[2].team2_id}}" data-dir='right'>
-                        <block wx:if="{{guessingDatas[2].team2_id == guessingDatas[2].win_team_id}}">
-                            <image class="finals-vote-content-winteambg" wx:if="{{guessingDatas[2].predict_team_id == guessingDatas[2].team2_id}}" src='../../images/finals_winteam_bg_active.png'></image>
+                    <view catchtap='clickWinner' data-show="showFinal" class='finals-vote-content-teambox' data-team_id="{{predict_team_id_round3_series0}}" data-dir='right'>
+                        <block wx:if="{{guessingDatas[2].team2_id == advPredict.win_team_id_round4_series0 && advPredict.win_team_id_round4_series0 !== null}}">
+                            <image class="finals-vote-content-winteambg" wx:if="{{advPredict.predict_team_id_round4_series0 == guessingDatas[2].team2_id}}" src='../../images/finals_winteam_bg_active.png'></image>
                             <image class="finals-vote-content-winteambg" wx:else src='../../images/finals_winteam_bg.png'></image>
                         </block>
                         <block wx:else>
-                            <image class="finals-vote-content-teambg" wx:if="{{guessingDatas[2].predict_team_id == guessingDatas[2].team2_id || chooseFinalTeam == guessingDatas[2].team2_id }}" src='../../images/finals_team_bg_active.png'></image>
+                            <image class="finals-vote-content-teambg" wx:if="{{(advPredict.predict_team_id_round4_series0 == guessingDatas[2].team2_id && advPredict.predict_team_id_round4_series0 !== null) || chooseFinalTeam === predict_team_id_round3_series0}}" src='../../images/finals_team_bg_active.png'></image>
                             <image class="finals-vote-content-teambg" wx:else src='../../images/finals_team_bg.png'></image>
                         </block>
-
-                        <image wx:if='{{!status1}}' class='finals-vote-teamlogo' src="{{finalsFr.logoSrc(guessingDatas[2].team2_id)}}"></image>
-                        <image wx:else class='finals-vote-teamlogo' src="{{finalsFr.logoSrc(predict_team_id_round3_series1)}}"></image>
-
+                        <image wx:if='{{status1 || status2}}' class='finals-vote-teamlogo' src="{{finalsFr.logoSrc(predict_team_id_round3_series0)}}"></image>
+                        <image wx:if='{{status4 || status5}}' class='finals-vote-teamlogo' src="{{finalsFr.logoSrc(advPredict.predict_team_id_round3_series0)}}"></image>
+                        <image wx:if='{{status3}}' class='finals-vote-teamlogo' src="{{finalsFr.logoSrc(guessingDatas[2].team2_id)}}"></image>
+                        
                     </view>
                 </view>
             </view>
-
-
-
             <view class="finals-vote-select" wx:if="{{status1 && showFinalScore}}">
                 <view bindtap='clickScore' class="finals-vote-select-item {{score_active3=='1-1'?'active':''}}" data-series='3' data-active='1-1' data-show="final">
                     <image class='finals-vote-select-itembg active-bg' src='../../images/finals_score_active_bg.png'></image>
@@ -413,35 +372,39 @@
                     </view>
                 </view>
             </view>
-
-
-
-            <view wx:if="{{advPredict.predict_game_id_round3_series0}}">
+            <view wx:if="{{advPredict.predict_game_id_round4_series0 != null}}">
                 <!-- 用户竞猜选择且对的比分 -->
-                <view class="finals-vote-win-item" wx:if="{{advPredict.predict_game_id_round3_series0 == advPredict.win_game_id_round3_series0}}">
+                <view class="finals-vote-win-item" wx:if="{{advPredict.predict_game_id_round4_series0 == advPredict.win_game_id_round4_series0}}">
                     <image class='finals-vote-win-itembg inactive-bg' src='../../images/finals_score_win_bg.png'></image>
                     <view class='finals-vote-win-itemscore'>
-                        {{finalsFr.reverse(dirFinal,advPredict.predict_game_id_round3_series0)}}
+                        <view wx:if='{{advPredict.predict_team_id_round4_series0 == guessingDatas[2].team1_id}}'>
+                            4:{{advPredict.predict_game_id_round4_series0}}
+                        </view>
+                        <view wx:else>{{advPredict.predict_game_id_round4_series0}}:4</view>
                     </view>
                 </view>
                 <!-- 用户竞猜选择的比分 -->
                 <view class="finals-vote-selectconfirm-item" wx:else>
                     <image class='finals-vote-select-itembg inactive-bg' src='../../images/finals_score_select_bg.png'></image>
                     <view class='finals-vote-select-itemscore'>
-                        {{finalsFr.reverse(dirFinal,advPredict.predict_game_id_round3_series0)}}
+                        <view wx:if='{{advPredict.predict_team_id_round4_series0 == guessingDatas[2].team1_id || advPredict.predict_team_id_round4_series0 == advPredict.predict_team_id_round3_series1}}'>
+                            4:{{advPredict.predict_game_id_round4_series0}}
+                        </view>
+                        <view wx:else>{{advPredict.predict_game_id_round4_series0}}:4</view>
                     </view>
                 </view>
             </view>
         </view>
+        <view class='showFinalPopup' wx:if="{{showFinalPopup}}">
+            <view class='container'>
+                <view>很遗憾</view>
+                <view>你选择的球队未全部晋级</view>
+                <view class="back">
+                    <navigator open-type="navigateBack">查看总决赛进程</navigator>
+                </view>
+            </view>
+        </view>
     </view>
-
-
-
-
-
-
-
-
     <view class='finals-vote-btns' wx:if='{{status1}}'>
         <view class='finals-vote-btnsword'>
             一旦提交结果，无法更改
@@ -462,12 +425,6 @@
             </navigator>
         </view>
     </view>
-
-
-
-
-
-
     <view class='finals-vote-notice' wx:if="{{notice==true}}">
         <view class='finals-vote-noticebox'>
             <view class='finals-vote-noticeword'>请选择你支持的球队和最终比分！</view>

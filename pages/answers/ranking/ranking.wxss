@@ -1,0 +1,260 @@
+.tabs {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    margin-top: 30rpx;
+    margin-bottom: 35rpx;
+}
+
+.friends_tabs,
+.all_tabs {
+    position: relative;
+    height: 120rpx;
+}
+
+.tabs_bg {
+    width: 630rpx;
+    height: 120rpx;
+}
+
+.tabs_name_1,
+.tabs_name_2,
+.tabs_name_1_active,
+.tabs_name_2_active {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabs_name_1_active,
+.tabs_name_1 {
+    left: 0;
+    top: 0;
+}
+
+.tabs_name_2,
+.tabs_name_2_active {
+    right: 0;
+    top: 0;
+}
+
+.ranking_option_1,
+.ranking_option_2 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 750rpx;
+    height: 182rpx;
+}
+
+
+
+.ranking_content {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    width: 659rpx;
+    height: 279rpx;
+    margin: 0 auto;
+    background: url('http://cdn.yooqapp.com/rc/games/ranking_bg_1.png') no-repeat center;
+    background-size: cover;
+}
+
+
+.ranking_content .num {
+    position: absolute;
+    left: 136rpx;
+    top: 27rpx;
+    width: 60rpx;
+    text-align: center;
+    font-size: 40rpx;
+    color: #fff;
+}
+
+.options {
+    position: relative;
+    z-index: 100;
+}
+
+.word_highlight {
+    color: #FFF800;
+}
+
+.ranking_content .messages {
+    position: absolute;
+    width: 400rpx;
+    right: 40rpx;
+    top: 100rpx;
+    color: #fff;
+    font-size: 28rpx;
+    line-height: 56rpx;
+}
+
+.ranking_content .messages .option,
+.ranking_list .option {
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.option1 {
+    text-align: left;
+}
+
+.option2 {
+    text-align: right;
+}
+
+.ranking_list {
+    position: relative;
+    height: calc(100vh - 185rpx);
+}
+
+.friends_ranking_null ,.all_ranking_null{
+  position: absolute;
+  left: 50%;
+  top: 10rpx;
+  z-index: 10;
+  color: #fff;
+  transform: translateX(-50%);
+}
+
+
+.ranking_name {
+    font-size: 32rpx;
+}
+
+.friends_ranking .item,
+.all_ranking .item {
+    width: 659rpx;
+    height: 279rpx;
+    position: relative;
+    margin: 0 auto 20rpx;
+}
+
+
+.friends_ranking .item:last-child,
+.all_ranking .item:last-child {
+  margin-bottom: 182rpx;
+}
+
+.item1 {
+    background: no-repeat center;
+    background-size: cover;
+    background-image: url('http://cdn.yooqapp.com/rc/games/ranking_bg_1.png');
+}
+
+.item2 {
+   background: no-repeat center;
+    background-size: cover;
+    background-image: url('http://cdn.yooqapp.com/rc/games/ranking_bg_2.png');
+}
+
+.item3 {
+   background: no-repeat center;
+    background-size: cover;
+    background-image: url('http://cdn.yooqapp.com/rc/games/ranking_bg_3.png');
+}
+
+.item4 {
+   background: no-repeat center;
+    background-size: cover;
+    background-image: url('http://cdn.yooqapp.com/rc/games/ranking_bg_4.png');
+}
+
+.friends_ranking .messages,
+.all_ranking .messages {
+    position: absolute;
+    width: 400rpx;
+    right: 40rpx;
+    top: 100rpx;
+    color: #fff;
+    font-size: 28rpx;
+    line-height: 56rpx;
+}
+
+.friends_ranking .messages .option,
+.all_ranking .messages .option {
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.share_btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 750rpx;
+    height: 100%;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    outline: none;
+}
+
+.ranking_num {
+    position: absolute;
+    left: 136rpx;
+    top: 27rpx;
+    width: 60rpx;
+    text-align: center;
+    font-size: 40rpx;
+    color: #fff;
+}
+
+.item-box {
+    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+.rules_popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rules_popup_bg {
+  position: relative;
+  width: 650rpx;
+  height: 541rpx;
+  background: url("http://cdn.yooqapp.com/rc/games/rules_popup.jpg") no-repeat;
+  background-size:100% 100%; 
+}
+
+.close_btn {
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  width: 60rpx;
+  height: 68rpx;
+}
+.affirm_btn {
+  position: absolute;
+  width: 321rpx;
+  height: 117rpx;
+  bottom: 30rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}

@@ -61,7 +61,8 @@ page {
     padding-left: 70rpx;
     padding-right: 70rpx;
     top: 100rpx;
-    height: 950rpx;
+    height: 1000rpx;
+    line-height: 1.8;
 }
 
 .details-1 .title {
@@ -88,5 +89,25 @@ page {
     width: 100%;
     position: absolute;
     left: 0;
-    top: 1150rpx;
+    top: 1130rpx;
+}
+
+
+
+@media screen and (max-height: 600px) {
+    .details-1 {
+        height: 900rpx;
+    }
+    .details-return {
+        top: 1030rpx;
+    }
+}
+
+@media screen and (min-height: 720px) {
+    .details-1 {
+        height: 1200rpx;
+    }
+    .details-return {
+        top: 1330rpx;
+    }
 }

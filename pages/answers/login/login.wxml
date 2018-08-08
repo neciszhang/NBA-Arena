@@ -1,0 +1,10 @@
+<view class='maincontent'>
+    <view class='maincontent_bg'></view>
+    <view class='flex_center'>
+        <image class="nmq_logo" src="http://cdn.yooqapp.com/rc/games/logo.png"></image>
+    </view>
+    <view class='flex_center text'>需要您的授权才可以继续使用!</view>
+    <button open-type="getUserInfo" class='get_userInfo_btn' bindgetuserinfo="userInfoHandler">
+        <image src='http://cdn.yooqapp.com/rc/games/authorization.png'></image>
+    </button>
+</view>

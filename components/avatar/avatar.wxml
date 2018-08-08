@@ -1,0 +1,10 @@
+<view style="transform: scale({{scale}}); filter:brightness({{is_gray?0.3:1}});position: absolute; left:{{left_pos}}rpx; top:{{top_pos}}rpx">
+    <view class='wrap' style="background-image: url('{{avatar_img}}');">
+        <view class='left common'>
+            <view class="inner" style="background-image: url('{{avatar_img}}')"></view>
+        </view>
+        <view class='right common'>
+            <view class="inner" style="background-image: url('{{avatar_img}}')"></view>
+        </view>
+    </view>
+</view>

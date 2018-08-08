@@ -1,0 +1,52 @@
+.focus_popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  z-index: 99;
+}
+.focus_img {
+  width: 670rpx;
+  height: 999rpx;
+}
+
+.focus_content {
+  width: 670rpx;
+  margin: 0 auto;
+  margin-top: 85rpx;
+  overflow: hidden;
+  position: relative;
+  z-index: 99;
+  text-align: center;
+}
+
+.up_arrow_icon {
+  width: 66rpx;
+  height: 66rpx;
+  position: absolute;
+  right: 118rpx;
+  top: 5rpx;
+}
+
+.close_btn {
+  position: absolute;
+  width: 60rpx;
+  height: 68rpx;
+  right: 20rpx;
+  top: 10rpx;
+}
+
+.move_up_forwards {
+  animation: move_up_forwards 0.8s linear infinite;
+}
+
+@keyframes move_up_forwards {
+  0% {
+    transform: translateY(-5rpx);
+  }
+
+  100% {
+    transform: translateY(5rpx);
+  }
+}

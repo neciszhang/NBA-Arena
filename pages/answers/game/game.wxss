@@ -1,0 +1,1116 @@
+.invite {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.tip {
+  text-align: center;
+  margin-top: 34rpx;
+  font-size: 28rpx;
+  color: #fff;
+  font-weight: bold;
+}
+
+.cancel {
+  width: 291rpx;
+  height: 117rpx;
+  margin: 120rpx auto 0 auto;
+  background: url("http://cdn.yooqapp.com/rc/games/cancel_btn.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+.answers {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.plays {
+  position: relative;
+  height: 303rpx;
+  margin-top: 38rpx;
+  /* background: url("http://cdn.yooqapp.com/rc/games/fight_bg.png") no-repeat;
+  background-size: 100% 100%; */
+  box-sizing: border-box;
+}
+
+.fight_bg {
+  position: absolute;
+  width: 710rpx;
+  height: 302rpx;
+  left: 19rpx;
+  top: 38rpx;
+  z-index: 10;
+}
+
+.count_time_box {
+  position: relative;
+  width: 250rpx;
+  height: 350rpx;
+  text-align: center;
+  z-index: 11;
+}
+
+.count_time {
+  width: 250rpx;
+  height: 150rpx;
+  text-align: center;
+  color: #de0014;
+  font-size: 60rpx;
+  display: flex;
+  align-items: center;
+}
+
+.time {
+  position: absolute;
+  top: 130rpx;
+  left: 285rpx;
+  width: 180rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 64rpx;
+  margin: 0 auto;
+}
+
+.questions_num {
+  position: absolute;
+  left: 0;
+  top: 260rpx;
+  width: 750rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+  font-size: 40rpx;
+  color: #fff;
+  text-align: center;
+}
+
+.name {
+  margin: 10px 0;
+}
+
+.mine_score {
+  position: absolute;
+  width: 182rpx;
+  height: 207rpx;
+  top: 76rpx;
+  left: 22rpx;
+  line-height: 207rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 85rpx;
+  z-index: 11;
+}
+
+.rival_score {
+  position: absolute;
+  width: 182rpx;
+  height: 207rpx;
+  top: 76rpx;
+  right: 25rpx;
+  line-height: 207rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 85rpx;
+  z-index: 11;
+}
+
+.rival_avatars {
+  position: absolute;
+  width: 131rpx;
+  height: 120rpx;
+  right: 39rpx;
+  top: -1rpx;
+  z-index: 9;
+}
+
+.mine_avatars {
+  position: absolute;
+  width: 131rpx;
+  height: 120rpx;
+  left: -21rpx;
+  top: -1rpx;
+  z-index: 9;
+}
+
+.rival_user {
+  position: absolute;
+  right: 120rpx;
+  top: 28rpx;
+  width: 164rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  z-index: 11;
+}
+
+.mine_user {
+  position: absolute;
+  left: 110rpx;
+  top: 28rpx;
+  width: 164rpx;
+  height: 49rpx;
+  line-height: 49rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  z-index: 11;
+}
+
+.label {
+  width: 100%;
+}
+
+.question {
+  opacity: 0;
+  display: table;
+  width: 750rpx;
+  height: 160rpx;
+  background: url("http://cdn.yooqapp.com/rc/games/question_bg.png") no-repeat;
+  background-size: 100% 100%;
+  margin-top: 90rpx;
+  margin-bottom: 50rpx;
+}
+
+.question text {
+  width: 100%;
+  height: 100%;
+  padding: 0 80rpx;
+  box-sizing: border-box;
+  display: table-cell;
+  font-size: 34rpx;
+  color: #fff;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.option {
+  opacity: 0;
+  position: relative;
+  width: 502rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  color: #fff;
+  text-align: center;
+  background: #424242;
+  margin: 0 auto 30rpx auto;
+  background: url('http://cdn.yooqapp.com/rc/games/question_bg_default.png') no-repeat;
+  background-size: 100% 100%;
+}
+
+.option text {
+  display: block;
+  font-size: 30rpx;
+}
+
+.right {
+  background: url('http://cdn.yooqapp.com/rc/games/question_bg_right.png') no-repeat;
+  background-size: 100% 100%;
+}
+
+.error {
+  background: url('http://cdn.yooqapp.com/rc/games/question_bg_error.png') no-repeat;
+  background-size: 100% 100%;
+}
+
+.ms {
+  display: inline-block;
+  width: 72rpx;
+}
+
+.symbol {
+  display: inline-block;
+  width: 28rpx;
+}
+
+.matching {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.matching_banner {
+  width: 750rpx;
+  height: 300rpx;
+}
+
+.player {
+  margin-top: 54rpx;
+  text-align: center;
+}
+
+.player .avatars {
+  position: relative;
+  width: 300rpx;
+  height: 220rpx;
+  margin: 0 auto;
+}
+
+.player .avatars image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 300rpx;
+  height: 300rpx;
+}
+
+.player .player_name {
+  font-size: 40rpx;
+  color: #fff;
+}
+
+.progress_bar {
+  position: relative;
+  width: 497rpx;
+  height: 62rpx;
+  line-height: 62rpx;
+  background: url("http://cdn.yooqapp.com/rc/games/progress_bar_bg.png") no-repeat;
+  background-size: 100%;
+  margin: 54rpx auto 0 auto;
+  font-size: 40rpx;
+  color: #461804;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+.progress_bar text {
+  position: relative;
+  z-index: 20;
+}
+
+.progress {
+  position: absolute;
+  left: 19rpx;
+  top: 0;
+  height: 60rpx;
+  width: 200rpx;
+  -webkit-transition: width 0.2s linear;
+  transition: width 0.2s linear;
+  background: linear-gradient(to right, #e6ad3a, #f2d85d);
+  z-index: 15;
+}
+
+.progress::after {
+  content: "";
+  position: absolute;
+  right: -18rpx;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-top: 30rpx dashed transparent;
+  border-bottom: 31rpx dashed transparent;
+  border-left: 19rpx solid #f2d85d;
+  font-size: 0;
+}
+
+.arrow-left {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  width: 0;
+  height: 0;
+  border-top: 30rpx dashed transparent;
+  border-bottom: 31rpx dashed transparent;
+  border-right: 19rpx solid #e6ad3a;
+  font-size: 0;
+}
+
+.double_letter {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 177rpx;
+  height: 54rpx;
+  margin-top: -50rpx;
+}
+
+.last_num {
+  position: relative;
+  top: -35rpx;
+}
+
+.mine_right {
+  position: absolute;
+  left: 45rpx;
+  top: 50%;
+  width: 32rpx;
+  height: 32rpx;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.mine_error {
+  position: absolute;
+  left: 45rpx;
+  top: 50%;
+  width: 30rpx;
+  height: 30rpx;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.rival_right {
+  position: absolute;
+  right: 45rpx;
+  top: 50%;
+  width: 32rpx;
+  height: 32rpx;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.rival_error {
+  position: absolute;
+  right: 45rpx;
+  top: 50%;
+  width: 30rpx;
+  height: 30rpx;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.fight_animation {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.fight_animation .me {
+  position: absolute;
+  top: 12%;
+  left: 0;
+  width: 420rpx;
+  height: 292rpx;
+  z-index: 10;
+}
+
+.fight_animation .me .bg, .fight_animation .rival .bg {
+  position: relative;
+  width: 420rpx;
+  height: 292rpx;
+  z-index: 11;
+}
+
+.fight_animation .me .me_avatars, .fight_animation .rival .rival_avatars {
+  position: absolute;
+  width: 175rpx;
+  height: 175rpx;
+  z-index: 9;
+}
+
+.fight_animation .me .me_avatars {
+  left: 66rpx;
+  top: 20rpx;
+}
+
+.fight_animation .rival .rival_avatars {
+  right: 66rpx;
+  top: 20rpx;
+}
+
+.fight_animation .rival {
+  position: absolute;
+  bottom: 12%;
+  right: 0;
+  width: 420rpx;
+  height: 278rpx;
+  z-index: 10;
+}
+
+.fight_animation .vs {
+  position: fixed;
+  width: 330rpx;
+  height: 394rpx;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  margin-top: -180rpx;
+  margin-left: -158rpx;
+  z-index: 10;
+}
+
+.fight_animation .line2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 220rpx;
+  height: 380rpx;
+  z-index: 10;
+}
+
+.fight_animation .line1 {
+  position: absolute;
+  bottom: -380rpx;
+  left: -100rpx;
+  width: 220rpx;
+  height: 380rpx;
+  z-index: 10;
+}
+
+.fight_animation .line2 {
+  position: absolute;
+  top: -380rpx;
+  right: -100rpx;
+  width: 220rpx;
+  height: 380rpx;
+  z-index: 10;
+}
+
+.fight_animation .me_name {
+  position: absolute;
+  left: 0;
+  bottom: 40rpx;
+  width: 300rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  color: #fff;
+  font-size: 26rpx;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  z-index: 12;
+}
+
+.fight_animation .rival_name {
+  position: absolute;
+  right: 0;
+  bottom: 40rpx;
+  width: 380rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  color: #fff;
+  font-size: 26rpx;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  z-index: 12;
+  padding-left: 80rpx;
+  box-sizing: border-box;
+}
+
+.move_right {
+  -webkit-animation: move_right 0.5s linear forwards;
+  animation: move_right 0.5s linear forwards;
+}
+
+.move_left {
+  -webkit-animation: move_left 0.5s linear forwards;
+  animation: move_left 0.5s linear forwards;
+}
+
+.scale_b_s {
+  -webkit-animation: scale_b_s 0.6s 1.4s ease-in forwards;
+  animation: scale_b_s 0.6s 1.4s ease-in forwards;
+}
+
+.scale_s {
+  -webkit-animation: scale_s 0.4s ease forwards;
+  animation: scale_s 0.4s ease forwards;
+}
+
+.scale {
+  -webkit-animation: scale 0.4s ease forwards;
+  animation: scale 0.4s ease forwards;
+}
+
+.scale_2 {
+  -webkit-animation: scale_s_b_2 0.6s ease forwards;
+  animation: scale_s_b_2 0.6s ease forwards;
+}
+
+.scale_s_b {
+  -webkit-animation: scale_s_b 0.5s 2s ease forwards;
+  animation: scale_s_b 0.5s 2s ease forwards;
+}
+
+.opacity_full {
+  -webkit-animation: opacity_full 0.5s 0.8s ease forwards;
+  animation: opacity_full 0.5s 0.8s ease forwards;
+}
+
+.move_opacity {
+  -webkit-animation: move_opacity 1s 0.8s ease forwards;
+  animation: move_opacity 1s 0.8s ease forwards;
+}
+
+.line1_move {
+  -webkit-animation: line1_move 0.3s 0.6s ease forwards;
+  animation: line1_move 0.3s 0.6s ease forwards;
+}
+
+.line2_move {
+  -webkit-animation: line2_move 0.3s 0.6s ease forwards;
+  animation: line2_move 0.3s 0.6s ease forwards;
+}
+
+.move_up {
+  -webkit-animation: move_up 0.3s linear forwards;
+  animation: move_up 0.3s linear forwards;
+}
+
+.result {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.result_score {
+  position: absolute;
+  top: 450rpx;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 250rpx;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 60rpx;
+}
+
+.draw_box .score_num, .win_box .score_num {
+  font-size: 100rpx;
+  color: #ffe152;
+}
+
+.draw_box .label, .win_box .label {
+  font-size: 48rpx;
+  color: #ffe152;
+}
+
+.lose_box .score_num {
+  font-size: 100rpx;
+}
+
+.lose_box .label {
+  font-size: 48rpx;
+}
+
+.result_btn .option {
+  width: 514rpx;
+  opacity: 0;
+  background: none;
+}
+
+.again_btn image {
+  width: 100%;
+  height: 100rpx;
+}
+
+.ranking_btn image {
+  width: 100%;
+  height: 100rpx;
+}
+
+.share_btn button {
+  padding: 0;
+  background: transparent;
+}
+
+.share_btn button::after {
+  border: 0;
+}
+
+.share_btn image {
+  width: 100%;
+  height: 100rpx;
+}
+
+.draw_box .mine_name, .draw_box .rival_name {
+  position: absolute;
+  width: 244rpx;
+  height: 55rpx;
+  line-height: 55rpx;
+  font-size: 32rpx;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.draw_box .mine_name {
+  bottom: 160rpx;
+  left: 122rpx;
+}
+
+.draw_box .rival_name {
+  bottom: 160rpx;
+  right: 122rpx;
+}
+
+.draw_box .result_mine_avatar {
+  position: absolute;
+  bottom: 221rpx;
+  left: 149rpx;
+  width: 190rpx;
+  height: 150rpx;
+}
+
+.draw_box .result_rival_avatar {
+  position: absolute;
+  bottom: 221rpx;
+  right: 148rpx;
+  width: 190rpx;
+  height: 150rpx;
+}
+
+.result_letter {
+  width: 142rpx;
+  margin: 53rpx auto 0 auto;
+}
+
+.draw_box, .win_box, .lose_box {
+  position: relative;
+  height: 600rpx;
+}
+
+.draw_bg {
+  position: absolute;
+  left: 116rpx;
+  top: -126rpx;
+  width: 522rpx;
+  height: 577rpx;
+}
+
+.win_bg {
+  position: absolute;
+  left: 149rpx;
+  top: -126rpx;
+  width: 451rpx;
+  height: 577rpx;
+}
+
+.lose_bg {
+  position: absolute;
+  left: 149rpx;
+  top: -126rpx;
+  width: 451rpx;
+  height: 587rpx;
+}
+
+.win_box .mine_name {
+  position: absolute;
+  width: 244rpx;
+  height: 57rpx;
+  line-height: 55rpx;
+  font-size: 32rpx;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  bottom: 158rpx;
+  left: 255rpx;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.win_box .result_mine_avatar {
+  position: absolute;
+  bottom: 221rpx;
+  left: 281rpx;
+  width: 190rpx;
+  height: 150rpx;
+}
+
+.win_box .win_up_icon {
+  width: 104rpx;
+  height: 106rpx;
+  vertical-align: middle;
+}
+
+.lose_box .mine_name {
+  position: absolute;
+  width: 244rpx;
+  height: 57rpx;
+  line-height: 55rpx;
+  font-size: 32rpx;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  bottom: 148rpx;
+  left: 255rpx;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.lose_box .result_mine_avatar {
+  position: absolute;
+  bottom: 211rpx;
+  left: 280rpx;
+  width: 190rpx;
+  height: 150rpx;
+}
+
+.result_btn {
+  margin-top: 120rpx;
+}
+
+.is_answer_popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: transparent;
+}
+
+@-webkit-keyframes move_right {
+  0% {
+    -webkit-transform: translateX(-420rpx);
+    transform: translateX(-420rpx);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes move_right {
+  0% {
+    -webkit-transform: translateX(-420rpx);
+    transform: translateX(-420rpx);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes move_left {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(420rpx);
+    transform: translateX(420rpx);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes move_left {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(420rpx);
+    transform: translateX(420rpx);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes scale_b_s {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(4);
+    transform: scale(4);
+    margin-top: -180rpx;
+    margin-left: -158rpx;
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    margin-top: -180rpx;
+    margin-left: -158rpx;
+  }
+}
+
+@keyframes scale_b_s {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(4);
+    transform: scale(4);
+    margin-top: -180rpx;
+    margin-left: -158rpx;
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    margin-top: -180rpx;
+    margin-left: -158rpx;
+  }
+}
+
+@-webkit-keyframes scale_s {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(2);
+    transform: scale(2);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes scale_s {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(2);
+    transform: scale(2);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes scale {
+  0% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes scale {
+  0% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes scale_s_b {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes scale_s_b {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes scale_s_b_2 {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(1.6);
+    transform: scale(1.6);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes opacity_full {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opacity_full {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes move_opacity {
+  0% {
+    -webkit-transform: translateX(-20rpx);
+    transform: translateX(-20rpx);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes move_opacity {
+  0% {
+    -webkit-transform: translateX(-20rpx);
+    transform: translateX(-20rpx);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes line1_move {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  100% {
+    -webkit-transform: translate(100rpx, -380rpx);
+    transform: translate(100rpx, -380rpx);
+  }
+}
+
+@keyframes line1_move {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  100% {
+    -webkit-transform: translate(100rpx, -380rpx);
+    transform: translate(100rpx, -380rpx);
+  }
+}
+
+@-webkit-keyframes line2_move {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  100% {
+    -webkit-transform: translate(-100rpx, 380rpx);
+    transform: translate(-100rpx, 380rpx);
+  }
+}
+
+@keyframes line2_move {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  100% {
+    -webkit-transform: translate(-100rpx, 380rpx);
+    transform: translate(-100rpx, 380rpx);
+  }
+}
+
+@-webkit-keyframes move_up {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes move_up {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}

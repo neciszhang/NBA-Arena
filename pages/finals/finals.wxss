@@ -440,3 +440,25 @@
     width: 295rpx;
     height: 80rpx;
 }
+
+.showFinalPopup {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    background-color: rgba(0,0,0,0.6);
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-size: 32rpx;
+}
+.showFinalPopup .back {
+    margin-top: 40rpx;
+    text-decoration: underline;
+}
+
+
+.guessed_share_btn {
+  background: transparent;
+  padding: 0;
+}

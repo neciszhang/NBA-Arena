@@ -1,0 +1,34 @@
+<focus_popup show_popup="{{focus_popup_show}}" bind:closeFocus="closeFocus"></focus_popup>
+<view class='maincontent' style='overflow:hidden;'>
+    <view class='maincontent_bg'></view>
+    
+    <view class='title'>
+        <image src='http://cdn.yooqapp.com/rc/games/question_bank_title.png'></image>
+    </view>
+
+
+    <image bindtap='prv' class='prv_btn' src='http://cdn.yooqapp.com/rc/games/prv_btn.png' wx:if="{{current != 0 && current != 9}}"></image>
+    <image bindtap='next' class='next_btn' src='http://cdn.yooqapp.com/rc/games/next_btn.png' wx:if="{{current != 9}}"></image>
+
+
+    <swiper class='questions' current="{{current}}" bindanimationfinish="swiper_change">
+        <block wx:for="{{gameQuestionList}}" wx:key="{{index}}">
+            <swiper-item>
+                <view class='question'>
+                    <view class='question_num'>
+                        <view>{{index+1}}.</view>
+                    </view>
+                    <text>{{item.questionDetail.question}}</text>
+                </view>
+                <view class='options'>
+                    <block wx:for="{{item.answerDetailList}}" wx:for-item="cell" wx:for-index="cellindex" wx:key="{{cellindex}}">
+                        <view class='option {{cell.correct?"right_bg":""}}'>
+                            <text>{{cell.answer}}</text>
+                        </view>
+                    </block>
+                </view>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
+<image class='once_again' wx:if="{{current >= 9}}" src='http://cdn.yooqapp.com/rc/games/once_again.png' bindtap="focus_popup_show"></image>

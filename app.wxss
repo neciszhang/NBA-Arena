@@ -1,11 +1,71 @@
 /**app.wxss**/
-
 .container {
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
+  justify-content: center;
 }
+
+.maincontent_bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: url('http://cdn.yooqapp.com/rc/games/person_bg.jpg') no-repeat;
+  background-size: cover;
+}
+
+ .home-tip {
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 50;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.home-popup {
+    width: 670rpx;
+    height: 686rpx;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 20%;
+}
+
+.home-close {
+    width: 56rpx;
+    height: 64rpx;
+    position: absolute;
+    right: 30rpx;
+    top: 30rpx;
+}
+
+.home-popup-bg {
+    width: 670rpx;
+    height: 772rpx;
+    vertical-align: top;
+}
+
+.home-btn-box {
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    position: absolute;
+    left: 0;
+}
+
+.home-btn {
+    width: 294rpx;
+    height: 100rpx;
+    vertical-align: top;
+} 
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+

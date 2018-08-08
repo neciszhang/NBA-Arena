@@ -1,0 +1,7 @@
+<view class='focus_popup' wx:if="{{show_popup}}">
+  <view class='focus_content'>
+    <image class='focus_img' src='http://cdn.yooqapp.com/rc/games/focus_popup.png'></image>
+    <image bindtap='close_focus_popup' class='close_btn' src='http://cdn.yooqapp.com/rc/games/close_btn.png'></image>
+  </view>
+  <image class='up_arrow_icon move_up_forwards' src='http://cdn.yooqapp.com/rc/games/up_arrow_icon.png'></image>
+</view>

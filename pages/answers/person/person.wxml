@@ -1,0 +1,35 @@
+<view class='maincontent'>
+<view class='maincontent_bg'></view>
+  <login show_login="{{show_login}}" bind:updata="updata" bind:closeLogin="closeLogin"></login>
+  <focus_popup show_popup="{{focus_popup_show}}" bind:closeFocus="closeFocus"></focus_popup>
+  <view class='user'>
+    <image class='person_user_bg' src='http://cdn.yooqapp.com/rc/games/person_user_bg.png'></image>
+    <image class='level' wx:if="{{user_msg.userLevel == 1}}" src='http://cdn.yooqapp.com/rc/games/level_1.png'></image>
+    <image class='level' wx:if="{{user_msg.userLevel == 2}}" src='http://cdn.yooqapp.com/rc/games/level_2.png'></image>
+    <image class='level' wx:if="{{user_msg.userLevel == 3}}" src='http://cdn.yooqapp.com/rc/games/level_3.png'></image>
+    <image class='level' wx:if="{{user_msg.userLevel == 4}}" src='http://cdn.yooqapp.com/rc/games/level_4.png'></image>
+    <view class='avatars'>
+      <!-- <image src='{{user_msg.wechatPicUrl}}'></image> -->
+       <avatar scale="0.92" left_pos="0" top_pos="58" avatar_img="{{user_msg.wechatPicUrl}}"></avatar> 
+    </view>
+    <view class='user_msg'>
+      <view class='user_name'>{{user_msg.name}}</view>
+      <view class='user_score'>
+        <image class='integral_icon' src='http://cdn.yooqapp.com/rc/games/Integral_icon.png'></image>
+        积分：{{user_msg.points}}
+      </view>
+      <!-- <view class='matches_session'>
+        <text>每日积分场次:<text class='session_num'>{{user_msg.pointGameCount}}/{{user_msg.pointGameCountMax}}</text></text>
+        <text class='all_session_num'>每日总场次:<text class='session_num'>{{user_msg.totalGameCount}}/{{user_msg.totalGameCountMax}}</text></text>
+      </view> -->
+    </view>
+  </view>
+  <view class='banner'>
+    <block wx:if="{{user_msg.userStatus == 1}}">
+      <image class='sub_banner' bindtap="showLogin" src='http://cdn.yooqapp.com/rc/games/person_banner_1.png'></image>
+    </block>
+    <image bindtap='skip_shop' class='sub_banner' src='http://cdn.yooqapp.com/rc/games/person_banner_2.png'></image>
+    <image bindtap='skip_shop' class='sub_banner' src='http://cdn.yooqapp.com/rc/games/person_banner_3.png'></image>
+    <image bindtap='focus_popup_show' class='focus_btn' src='http://cdn.yooqapp.com/rc/games/focus_btn.png'></image>
+  </view>
+</view>

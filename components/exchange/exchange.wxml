@@ -171,7 +171,7 @@
       </view>
       <view class='model-4-content'>
         <view>
-          {{item.reward_name}}
+          {{item.reward_name}}30元
         </view>
         <view class='model-4-content-1'>
           （无门槛）

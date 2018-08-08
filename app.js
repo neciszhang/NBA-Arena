@@ -1,17 +1,26 @@
 //app.js
-App({
-  onLaunch: function () { 
+const api = require('./api/answers_api.js');
 
+App({
+  host: api.host,
+  onLaunch: function () {
+    let self = this;
     // 登录
     wx.login({
       success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        let self = this;
+        wx.request({
+          url: api.host + '/uat/getOpenId',
+          data:{
+            code: res.code
+          },
+          method: 'GET',
+          success: function (res) {
+            wx.setStorageSync('openid', res.data.openid);
+            wx.setStorageSync('all_rank', []);
+          }
+        })
       }
     })
-    
-    // 获取用户信息
-  },
-  globalData: {
-    
   }
 })

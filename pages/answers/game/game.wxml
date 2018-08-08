@@ -1,0 +1,192 @@
+<view class='maincontent'>
+  <view class='maincontent_bg'></view>
+  <view class='matching {{invite_hide?"move_up":""}}' style='display:{{(!gameStart && gameType =="matching" && !fight_animation && !result)?"block":"none"}}'>
+    <image class='matching_banner' src='http://cdn.yooqapp.com/rc/games/matching_banner.jpg'></image>
+    <view class='player'>
+      <view class='avatars'>
+        <avatar left_pos="50" top_pos="50" avatar_img="{{user_msg.wechatPicUrl}}"></avatar>
+      </view>
+      <view class='player_name'>{{user_msg.name}}</view>
+    </view>
+    <view class='progress_bar'>
+      <view class='arrow-left'></view>
+      <view class='progress' style='width:{{progress_num + "rpx"}}'></view>
+      <text>匹配中···({{matching_percent}}%)</text>
+    </view>
+    <view class='tip'>微信搜索nba_big，NBA官方微信号会不定期透题噢</view>
+    <view class='cancel' bindtap='cancel'></view>
+  </view>
+  <view class='invite {{invite_hide?"move_up":""}}' style='display:{{(!gameStart&& !result && gameType =="invite" && !fight_animation)?"block":"none"}}'>
+    <image class='matching_banner' src='http://cdn.yooqapp.com/rc/games/matching_banner.jpg'></image>
+    <view class='player'>
+      <view class='avatars'>
+        <avatar left_pos="50" top_pos="50" avatar_img="{{user_msg.wechatPicUrl}}"></avatar>
+      </view>
+      <view class='player_name'>{{user_msg.name}}</view>
+    </view>
+    <view class='progress_bar'>
+      <view class='arrow-left'></view>
+      <view class='progress' style='width:{{progress_num + "rpx"}}'></view>
+      <text>等待中···({{invite_percent}}s)</text>
+    </view>
+    <view class='tip'>微信搜索nba_big，NBA官方微信号会不定期透题噢</view>
+    <view class='cancel' bindtap='cancel'></view>
+  </view>
+  <view class='fight_animation' style='display:{{fight_animation?"block":"none"}}'>
+    <view class='me move_right'>
+      <image class='bg' src='http://cdn.yooqapp.com/rc/games/line11.png'></image>
+      <image class='me_avatars' src="{{user_avatars}}"></image>
+      <text class='me_name'>{{user_name}}</text>
+    </view>
+    <image class='vs scale_b_s' src='http://cdn.yooqapp.com/rc/games/fight_animation_vs.png'></image>
+    <view class='rival move_left'>
+      <image class='bg' src='http://cdn.yooqapp.com/rc/games/line22.png'></image>
+      <image class='rival_avatars' src='{{rival_avatars}}'></image>
+      <text class='rival_name'>{{rival_name}}</text>
+    </view>
+    <image class='line1 line1_move' src='http://cdn.yooqapp.com/rc/games/line1.png'></image>
+    <image class='line2 line2_move' src='http://cdn.yooqapp.com/rc/games/line2.png'></image>
+  </view>
+  <view class='answers' style='display:{{gameStart?"block":"none"}}'>
+  <image class='fight_bg' src='http://cdn.yooqapp.com/rc/games/fight_bg.png'></image>
+    <view class='plays'>
+      <view class='mine_msg'>
+        <view class='mine_avatars'>
+          <avatar scale="0.38" avatar_img="{{user_avatars}}"></avatar>
+        </view>
+        <view class='mine_user'>{{user_name}}</view>
+        <view class='mine_score'>{{user_score}}</view>
+      </view>
+      <view class='count_time_box'>
+        <view class='count_time'>
+          <view class='time'>
+            <block wx:if="{{system == 'ios'}}">
+              <view>
+                <view class='ms'>{{count_time_ms}}</view>
+                <view class='symbol'>:</view>
+                <view class='ms'>{{count_time_hm}}</view>
+              </view>
+            </block>
+            <block wx:else>
+              <view>{{count_time_ms}}</view>
+            </block>
+          </view>
+        </view>
+        <view class='questions_num'>
+          <text wx:if="{{current_index != 4}}" style='display:{{show_question?"block":"none"}}' class='scale_2'>第{{current_index + 1}}题</text>
+          <text wx:if="{{current_index == 4}}" style='display:{{show_question?"block":"none"}}' class='scale_2 last_num'>最后一题</text>
+          <image wx:if="{{current_index == 4}}" class='double_letter scale_2' src='http://cdn.yooqapp.com/rc/games/double_letter.png'></image>
+        </view>
+      </view>
+      <view class='rival_msg'>
+        <view class='rival_avatars'>
+          <avatar left_pos="-2.5" scale="0.38" avatar_img="{{rival_avatars}}"></avatar>
+        </view>
+        <view class='rival_user'>{{rival_name}}</view>
+        <view class='rival_score'>{{rival_score}}</view>
+      </view>
+    </view>
+    <view class='questions' style='display:{{show_question?"block":"none"}}'>
+      <view class='question opacity_full'>
+        <text>{{current_question.questionDetail.question}}</text>
+      </view>
+      <view class='options'>
+        <block wx:for="{{current_question.answerDetailList}}" wx:key="{{index}}">
+          <view class='option scale_s_b'>
+            <view class='{{item.state == "right"?"right scale":""}} {{item.state == "error"?"error scale":""}} {{item.rival=="right"?"right scale":""}} {{item.rival=="error"?"error scale":""}} {{item.pc_answer=="right"?"right scale":""}}' data-num="{{index}}" data-answerid="{{item.id}}"
+              data-istrue="{{item.correct}}" bindtap='select_option'>
+              <text>{{item.answer}}</text>
+              <block wx:if="{{item.state == 'right'}}">
+                <image class='mine_right' src='http://cdn.yooqapp.com/rc/games/right.png'></image>
+              </block>
+              <block wx:if="{{item.state == 'error'}}">
+                <image class='mine_error' src='http://cdn.yooqapp.com/rc/games/error.png'></image>
+              </block>
+              <block wx:if="{{item.rival == 'right'}}">
+                <image class='rival_right' src='http://cdn.yooqapp.com/rc/games/right.png'></image>
+              </block>
+              <block wx:if="{{item.rival == 'error'}}">
+                <image class='rival_error' src='http://cdn.yooqapp.com/rc/games/error.png'></image>
+              </block>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class='result' style='display:{{result?"block":"none"}}'>
+   
+    <view class='draw_box scale_s' style='display:{{game_result.gameResult=="0"?"block":"none"}}'>
+      <image class='draw_bg' src='http://cdn.yooqapp.com/rc/games/draw_bg.png'></image>
+      <view class='mine_name'>{{user_name}}</view>
+      <view class='result_mine_avatar'>
+        <avatar scale="0.8899" avatar_img="{{user_avatars}}"></avatar>
+      </view>
+      <view class='rival_name'>{{rival_name}}</view>
+      <view class='result_rival_avatar'>
+        <avatar scale="0.8899" avatar_img="{{rival_avatars}}"></avatar>
+      </view>
+      <view class='result_score'>
+        <view wx:if="{{!(user_msg.pointGameCount >= user_msg.pointGameCountMax)}}">
+          <text class='score_num'>+{{game_result.user.gamePoint}}</text>
+          <text class='label'>积分</text>
+        </view>
+      </view>
+    </view>
+
+    <view class='win_box scale_s' style='display:{{game_result.gameResult=="1"?"block":"none"}}'>
+      <image class='win_bg' src='http://cdn.yooqapp.com/rc/games/win_bg.png'></image>
+      <view class='mine_name'>{{user_name}}</view>
+      <view class='result_mine_avatar'>
+        <avatar scale="0.8899" avatar_img="{{user_avatars}}"></avatar>
+      </view>
+      <view class='result_score'>
+        <view wx:if="{{!(user_msg.pointGameCount >= user_msg.pointGameCountMax)}}">
+          <view class='score_num'>
+            <image mode='widthFix' class='win_up_icon' src='http://cdn.yooqapp.com/rc/games/win_up_icon.png'></image>
+            <text style='vertical-align: middle;'>{{game_result.user.gamePoint}}</text>
+            <text class='label'>积分</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class='lose_box scale_s' style='display:{{game_result.gameResult=="2"?"block":"none"}}'>
+      <image class='lose_bg' src='http://cdn.yooqapp.com/rc/games/lose_bg.png'></image>
+      <view class='mine_name'>{{user_name}}</view> 
+      <view class='result_mine_avatar'>
+        <avatar is_gray="{{true}}" scale="0.91" avatar_img="{{user_avatars}}"></avatar>
+      </view>
+      <view class='result_score'>
+        <view wx:if="{{!(user_msg.pointGameCount >= user_msg.pointGameCountMax)}}">
+          <text class='score_num'>+{{game_result.user.gamePoint}}</text>
+          <text class='label'>积分</text>
+        </view>
+      </view>
+    </view>
+
+
+
+    <view class='result_btn'>
+      <view class='options'>
+        <view class='option move_opacity again_btn' style='animation-delay:0.5s' bindtap='skip_index'>
+          <image src='http://cdn.yooqapp.com/rc/games/games_again_btn.png'></image>
+        </view>
+        <view class='option move_opacity ranking_btn' style='animation-delay:1s' bindtap='skip_ranking'>
+          <image src='http://cdn.yooqapp.com/rc/games/games_ranking_btn.png'></image>
+        </view>
+        <view class='option move_opacity share_btn' style='animation-delay:1.5s'>
+          <button open-type='share' hover-class="none">
+            <image src='http://cdn.yooqapp.com/rc/games/games_share_btn.png'></image>
+          </button>
+        </view>
+      </view>
+    </view>
+
+
+
+  </view>
+
+</view>
+
+<view class='is_answer_popup' style='display:{{is_answer?"block":"none"}}'></view>

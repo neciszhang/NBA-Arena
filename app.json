@@ -1,16 +1,26 @@
 {
   "pages": [
+    "pages/answers/index/index",
     "pages/index/index",
     "pages/home/home",
     "pages/myawards/myawards",
     "pages/details/details",
     "pages/login/login",
-    "pages/finals/finals"
+    "pages/finals/finals",
+    "pages/answers/person/person",
+    "pages/answers/ranking/ranking",
+    "pages/answers/game/game",
+    "pages/answers/question_bank/question_bank",
+    "pages/answers/login/login",
+    "pages/answers/webview/webview"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#36363a",
+    "navigationBarBackgroundColor": "#5fc4f8",
     "navigationBarTitleText": "NBA竞技场",
     "navigationBarTextStyle": "white"
+  },
+  "networkTimeout": {
+    "request": 20000
   }
 }

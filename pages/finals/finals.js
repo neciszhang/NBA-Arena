@@ -11,16 +11,17 @@ Page({
         showWest: false,
         showEast: false,
         showFinal: false,
+        showFinalPopup: false,
         dirWest: 'left',
         dirEast: 'left',
         dirFinal: 'left',
         // showWestScore: false,
         // showScoreVote2: false,
         // showScoreVote3: false,
-        //西部
+        //东部
         predict_team_id_round3_series0: null,
         predict_game_id_round3_series0: null,
-        //东部
+        //西部
         predict_team_id_round3_series1: null,
         predict_game_id_round3_series1: null,
         //最终决赛
@@ -64,10 +65,10 @@ Page({
         // win_users: ''
     },
     toWebView() {
-      let webViewUrl = encodeURIComponent('https://www.nbaqmq.com/');
-      wx.navigateTo({
-        url: `/pages/webview/webview?url=${webViewUrl}`
-      })
+        let webViewUrl = encodeURIComponent('https://www.nbaqmq.com/');
+        wx.navigateTo({
+            url: `/pages/webview/webview?url=${webViewUrl}`
+        })
     },
     //点击图标
     clickWinner(e) {
@@ -80,27 +81,27 @@ Page({
         if (show == 'showWest') {
             this.setData({
                 showWest: true,
-                predict_team_id_round3_series0: team_id,
+                predict_team_id_round3_series1: team_id,
                 showWestScore: true,
                 chooseWestTeam: team_id,
 
                 score_active1: null,
                 dirWest: dir,
-                predict_game_id_round3_series0: null,
+                predict_game_id_round3_series1: null,
             });
         }
 
         if (show == 'showEast') {
             this.setData({
                 showEast: true,
-                predict_team_id_round3_series1: team_id,
+                predict_team_id_round3_series0: team_id,
                 showEastScore: true,
                 chooseEastTeam: team_id,
 
 
                 score_active2: null,
                 dirEast: dir,
-                predict_game_id_round3_series1: null,
+                predict_game_id_round3_series0: null,
             });
         }
 
@@ -128,13 +129,13 @@ Page({
         if (show == 'west') {
             this.setData({
                 score_active1: score_active,
-                predict_game_id_round3_series0: series,
+                predict_game_id_round3_series1: series,
             })
         }
         if (show == 'east') {
             this.setData({
                 score_active2: score_active,
-                predict_game_id_round3_series1: series,
+                predict_game_id_round3_series0: series,
             })
         }
         if (show == 'final') {
@@ -150,16 +151,16 @@ Page({
         console.log(this.data.predict_game_id_round3_series0)
         console.log(this.data.predict_game_id_round3_series1)
         console.log(this.data.predict_game_id_round4_series0)
-        if (this.data.predict_game_id_round3_series0 == null) {
-            error = true;
-            this.setData({
-                erroreast: true
-            });
-        };
         if (this.data.predict_game_id_round3_series1 == null) {
             error = true;
             this.setData({
                 errorwest: true
+            });
+        };
+        if (this.data.predict_game_id_round3_series0 == null) {
+            error = true;
+            this.setData({
+                erroreast: true
             });
         };
         if (this.data.predict_game_id_round4_series0 == null) {
@@ -189,8 +190,34 @@ Page({
             predict_team_id_round4_series0: this.data.predict_team_id_round4_series0,
             predict_game_id_round4_series0: this.data.predict_game_id_round4_series0,
         }
+
+
+        console.log(this.data.predict_team_id_round3_series0)
+        console.log(this.data.predict_game_id_round3_series0)
+        console.log(this.data.predict_team_id_round3_series1)
+        console.log(this.data.predict_game_id_round3_series1)
+        console.log(this.data.predict_team_id_round4_series0)
+        console.log(this.data.predict_game_id_round4_series0)
+
+
+
+
+        let advPredict = this.data.advPredict;
+        advPredict.predict_game_id_round3_series0 = this.data.predict_game_id_round3_series0,
+        advPredict.predict_team_id_round3_series0 = this.data.predict_team_id_round3_series0,
+        advPredict.predict_game_id_round3_series1=  this.data.predict_game_id_round3_series1,
+        advPredict.predict_team_id_round3_series1 = this.data.predict_team_id_round3_series1,
+        advPredict.predict_game_id_round4_series0= this.data.predict_game_id_round4_series0,
+        advPredict.predict_team_id_round4_series0 = this.data.predict_team_id_round4_series0
+
         api.advPredictPost(obj).then((res) => {
-            // console.log(res);
+            console.log(res);
+            this.setData({
+                status1: false,
+                status2: true,
+                advPredict
+            })
+            console.log(this.data.status2);
         });
     },
     //清除错误弹窗
@@ -222,7 +249,8 @@ Page({
             api.advPredictGet().then((res) => {
                 let datas = res.data;
 
-                // datas.count_down_timestamp = new Date('2018/04/22').getTime() / 1000;
+                // datas.status = 1;
+                // datas.count_down_timestamp = new Date('2018/05/22').getTime() / 1000;
                 // datas.predict_game_id_round3_series0 = null;
                 // datas.predict_game_id_round3_series1= null;
                 // datas.predict_game_id_round4_series0= null;
@@ -235,12 +263,12 @@ Page({
                 // datas.win_team_id_round3_series0 = 1610612738;
                 // datas.win_team_id_round3_series1 = 1610612757;
                 // datas.win_team_id_round4_series0 = 1610612757;
-                // datas.status = 3;
 
 
                 self.setData({
                     advPredict: datas
                 })
+
                 console.log(this.data.advPredict);
 
 
@@ -254,11 +282,12 @@ Page({
                     console.log('status2');
                     this.setData({
                         status2: true,
-                        //西部
+
+                        //东部
                         predict_team_id_round3_series0: datas.predict_team_id_round3_series0,
                         predict_game_id_round3_series0: datas.predict_game_id_round3_series0,
 
-                        //东部
+                        //西部
                         predict_team_id_round3_series1: datas.predict_team_id_round3_series1,
                         predict_game_id_round3_series1: datas.predict_game_id_round3_series1,
 
@@ -272,8 +301,7 @@ Page({
                         status3: true
                     })
                 } else if (datas.predict_team_id_round3_series0 != null && datas.status == 3) {
-                    if (datas.predict_team_id_round3_series0 == datas.win_team_id_round3_series0 && datas.predict_team_id_round3_series1 == datas.win_team_id_round3_series1 && datas.predict_team_id_round4_series0 == datas.win_team_id_round4_series0) {
-
+                    if (datas.predict_team_id_round3_series0 == datas.win_team_id_round3_series0 && datas.predict_team_id_round3_series1 == datas.win_team_id_round3_series1 && datas.predict_team_id_round4_series0 == datas.win_team_id_round4_series0 && datas.predict_game_id_round3_series0 == datas.win_game_id_round3_series0 && datas.predict_game_id_round3_series1 == datas.win_game_id_round3_series1 && datas.predict_game_id_round4_series0 == datas.win_game_id_round4_series0) {
                         console.log('status4');
                         //全部猜对
                         this.setData({
@@ -286,6 +314,12 @@ Page({
                         this.setData({
                             status5: true
                         })
+                        if (datas.predict_team_id_round3_series0 != datas.win_team_id_round3_series0 || datas.predict_team_id_round3_series1 != datas.win_team_id_round3_series1) {
+                            //猜错
+                            this.setData({
+                                showFinalPopup: true
+                            })
+                        }
                     }
                 }
             });

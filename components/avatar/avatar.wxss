@@ -1,0 +1,44 @@
+.wrap {
+    height: 110rpx;
+    width: 190rpx;
+    position: relative;
+    background: 50% 50% no-repeat;
+    background-size: auto 220rpx;
+    z-index: 99;
+}
+
+.common {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+
+.common .inner {
+    position: absolute;
+    left: 0;
+    background: 50% 50% no-repeat;
+    background-size: auto 220rpx;
+    width: 190rpx;
+    height: 220rpx;
+}
+
+.left {
+    transform: rotate(60deg) translate3d(0, 0, 0);
+}
+
+.left .inner {
+    transform: rotate(-60deg) translate3d(48rpx, -28rpx, 0);
+    top: 0;
+}
+
+.right {
+    transform: rotate(-60deg) translate3d(0, 0, 0);
+}
+
+.right .inner {
+    transform: rotate(60deg) translate3d(48rpx, 28rpx, 0);
+    bottom: 0;
+}

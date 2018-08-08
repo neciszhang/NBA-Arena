@@ -148,10 +148,10 @@ function formatTeamsStatus(datas) {
             data.win_team_url = `../../images/teams/${data.win_team_id}.png`;
             data.predict_team_name = querytTeamName(data.predict_team_id);
         }
-        // data.predict_team_name = null;
-        // data.win_team_id = null;
-        // data.team1_id = null;
-        // data.team2_id = null;
+        // data.predict_team_name = 1610612744;
+        // data.win_team_id = 1610612744;
+        // data.team1_id = 1610612744;
+        // data.team2_id = 1610612739;
         // data.predict_team_name = querytTeamName(data.predict_team_id);
         // data.predict_team_id = data.team1_id;
         // data.win_team_url = `https://ui-cdn.nbaqmq.com/static/logo/${data.win_team_id}.png`;

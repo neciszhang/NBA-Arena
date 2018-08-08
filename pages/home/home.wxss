@@ -24,6 +24,8 @@ page {
     position: absolute;
     width: 750rpx;
     height: 100%;
+    left: 0;
+    top: 0;
     z-index: 11;
 }
 
@@ -130,39 +132,47 @@ page {
 .left_arrow {
     position: absolute;
     left: 15rpx;
-    bottom: 153rpx;
+    bottom: 147rpx;
     z-index: 11;
-    -webkit-animation: opacity_left 1.2s ease infinite;
-    animation: opacity_left 1.2s ease infinite;
+    -webkit-animation: opacity_left 1.2s ease forwards;
+    animation: opacity_left 1.2s ease forwards;
+    width: 99rpx;
+    height: 64rpx;
 }
 
 .west_btn {
     position: absolute;
     left: 132rpx;
-    bottom: 148rpx;
+    bottom: 142rpx;
     z-index: 11;
     opacity: 0;
     -webkit-animation: opacity_full 0.5s 1.6s ease forwards;
     animation: opacity_full 0.5s 1.6s ease forwards;
+    width: 70rpx;
+    height: 77rpx;
 }
 
 .right_arrow {
     position: absolute;
     left: 635rpx;
-    bottom: 153rpx;
+    bottom: 147rpx;
     z-index: 11;
-    -webkit-animation: opacity_right 1.2s ease infinite;
-    animation: opacity_right 1.2s ease infinite;
+    -webkit-animation: opacity_right 1.2s ease forwards;
+    animation: opacity_right 1.2s ease forwards;
+    width: 102rpx;
+    height: 64rpx;
 }
 
 .east_btn {
     position: absolute;
     left: 545rpx;
-    bottom: 148rpx;
+    bottom: 142rpx;
     z-index: 11;
     opacity: 0;
     -webkit-animation: opacity_full 0.5s 1.6s ease forwards;
     animation: opacity_full 0.5s 1.6s ease forwards;
+    width: 70rpx;
+    height: 77rpx;
 }
 
 .center_line {
@@ -210,8 +220,8 @@ page {
 
 .west_line {
     position: absolute;
-    right:124rpx;
-    top:135rpx;
+    right: 124rpx;
+    top: 135rpx;
     z-index: 10;
 }
 
@@ -226,9 +236,11 @@ page {
 .go_east_btn {
     position: absolute;
     right: 13rpx;
-    bottom: 146rpx;
+    bottom: 140rpx;
     z-index: 11;
     opacity: 0;
+    width: 188rpx;
+    height: 77rpx;
 }
 
 .west_troops .troops {
@@ -247,7 +259,8 @@ page {
 
 .east_troops .team_logo,
 .west_troops .team_logo {
-    width: 46rpx;
+    width: 50rpx;
+    height: 50rpx;
 }
 
 .east_troops .team_logo_box,
@@ -297,9 +310,11 @@ page {
 .go_west_btn {
     position: absolute;
     left: 12rpx;
-    bottom: 146rpx;
+    bottom: 140rpx;
     z-index: 11;
     opacity: 0;
+    width: 188rpx;
+    height: 77rpx;
 }
 
 .east_troops .troops {
@@ -396,8 +411,8 @@ page {
 
 .status_letter {
     position: absolute;
-    width: 81rpx;
-    top: 57rpx;
+    width: 80rpx;
+    top: 60rpx;
     left: 24rpx;
     z-index: 12;
 }
@@ -451,7 +466,7 @@ page {
     width: 110rpx;
     height: 131rpx;
     left: 10rpx;
-    top: 7rpx;
+    top: 6rpx;
     z-index: 12;
     display: flex;
     align-items: center;
@@ -476,7 +491,7 @@ page {
 .east_final .status_letter,
 .center .status_letter {
     left: 39rpx;
-    top: 71rpx;
+    top: 76rpx;
 }
 
 .unbegin {
@@ -484,6 +499,11 @@ page {
     top: 0;
     left: 0;
     z-index: 12;
+}
+
+.opacity_title_empty,
+.loading_full_empty {
+    opacity: 0;
 }
 
 @-webkit-keyframes opacity_full {
@@ -804,4 +824,37 @@ page {
 .login-btn {
     width: 295rpx;
     height: 80rpx;
+}
+
+
+
+.content-box {
+    position: relative;
+}
+
+
+@media screen and (min-height: 720px) {
+    .title {
+        top: 100rpx;
+    }
+
+    .sub_title {
+        top: 780rpx;
+    }
+    .content-box {
+        margin-top: 100rpx;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    .go_east_btn {
+        bottom: 90rpx;
+        width: 150rpx;
+        height: 60rpx;
+    }
+    .go_west_btn {
+        bottom: 90rpx;
+        width: 146rpx;
+        height: 60rpx;
+    }
 }

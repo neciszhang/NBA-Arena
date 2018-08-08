@@ -162,6 +162,7 @@
 
 .model-1-tip-email {
   font-size: 18rpx;
+  margin-top: 10rpx;
 }
 
 .model-1-return-box {
@@ -274,7 +275,7 @@
 }
 
 .model-3-return-box {
-  margin-top: 10rpx;
+  margin-top: 90rpx;
   text-align: center;
   line-height: 0;
 }
@@ -309,6 +310,7 @@
 .model-4-content-2 {
   margin-top: 79rpx;
   font-size: 33rpx;
+  font-weight: bold;
 }
 .model-4-content-3 {
   margin-top: 18rpx;
@@ -319,7 +321,8 @@
   text-align: center;
   font-size: 26rpx;
   color: #142851;
-  line-height: 1.2;
+  line-height: 1.4;
+  font-weight: bold;
 }
 
 .model-4-search-box {

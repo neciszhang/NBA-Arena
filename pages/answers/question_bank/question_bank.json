@@ -1,0 +1,6 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+    "focus_popup": "../../../components/focus_popup/focus_popup"
+  }
+}

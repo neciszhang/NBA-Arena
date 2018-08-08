@@ -1,0 +1,8 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+    "login": "../../../components/login/login",
+    "focus_popup":"../../../components/focus_popup/focus_popup",
+    "avatar": "../../../components/avatar/avatar"
+  }
+}

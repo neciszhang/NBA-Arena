@@ -1,0 +1,172 @@
+/* pages/login/login.wxss */
+
+page {
+    height: 100%;
+    overflow: hidden;
+}
+
+.login {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-content {
+    width: 670rpx;
+    height: 913rpx;
+    overflow: hidden;
+    position: relative;
+    z-index: 99;
+    background: url("http://cdn.yooqapp.com/rc/games/login_bg.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.login-title {
+    width: 300rpx;
+    height: 276rpx;
+    display: block;
+    margin: 0 auto 50rpx;
+}
+
+.login-close {
+    position: absolute;
+    width: 57rpx;
+    height: 66rpx;
+    top: 31rpx;
+    right: 25rpx;
+}
+
+.login-form {
+    width: 500rpx;
+    color: #142851;
+    font-size: 24rpx;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 380rpx;
+}
+
+.login-word {
+    margin-bottom: 8rpx;
+}
+
+.login-form1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: white;
+    height: 64rpx;
+    margin-bottom: 46rpx;
+}
+
+.login-form1-1 {
+    width: 71rpx;
+    text-align: right;
+}
+
+.login-form1-2 {
+    width: 424rpx;
+    text-align: left;
+    padding-left: 11rpx;
+}
+
+.login-wrong {
+    color: #df0013;
+    position: absolute;
+    left: 0;
+    top: 106rpx;
+}
+
+.login-form2 {
+    background: white;
+    height: 64rpx;
+    margin-bottom: 46rpx;
+    overflow: hidden;
+    line-height: 64rpx;
+    position: relative;
+}
+
+.login-form2-1 {
+    width: 100%;
+    height: 100%;
+    padding-left: 29rpx;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+
+.login-form2-2 {
+    width: 235rpx;
+    height: 64rpx;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 0;
+    text-align: right;
+    color: white;
+    padding-right: 33rpx;
+    box-sizing: border-box;
+}
+
+.login-form2-3 {
+    padding-right: 17rpx;
+}
+
+.login-form2-bg {
+    position: absolute;
+    width: 235rpx;
+    height: 64rpx;
+    right: 0;
+    top: 0;
+}
+
+.login-wrong-captcha {
+    color: #df0013;
+    position: absolute;
+    left: 0;
+    top: 258rpx;
+}
+
+.login-form3 {
+    display: flex;
+    flex-direction: row;
+}
+
+.login-form3-1 .wx-checkbox-input {
+    width: 26rpx;
+    height: 26rpx;
+    background: #3a89e9;
+}
+
+.login-form3-1 .wx-checkbox-input.wx-checkbox-input-checked {
+    border: none;
+    /* background: red; */
+}
+
+.login-form3-box {
+    width: 40rpx;
+}
+
+.login-form3-2 {
+    width: 445rpx;
+    margin-left: 20rpx;
+    font-size: 20rpx;
+    color: #fff;
+}
+
+.login-btn-box {
+    text-align: center;
+    margin: 30rpx auto 0;
+    width: 350rpx;
+    height: 110rpx;
+}
+.login-btn-box image {
+    width: 350rpx;
+}

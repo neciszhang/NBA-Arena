@@ -7,13 +7,11 @@ page {
 }
 
 .home-bg {
-    height: 92%; 
-    width: 100%;  
+    height: 92%;
+    width: 100%;
     position: absolute;
     left: 0;
     top: 0;
-
- 
 }
 
 .home-box-1 {
@@ -29,7 +27,7 @@ page {
     position: absolute;
     text-align: center;
     line-height: 0;
-    bottom: 125rpx;
+    bottom: 115rpx;
     left: 0;
     width: 100%;
 }
@@ -97,4 +95,28 @@ page {
 
 .home-blur {
     -webkit-filter: blur(10rpx);
+}
+
+@media screen and (max-height: 600px) {
+    .home-bg {
+        height: 92%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: -10rpx;
+    }
+
+    .home-1,    
+    .home-2 {
+        width: 480rpx;
+        height: 390rpx;
+    }
+}
+
+@media screen and (min-height: 720px) {
+    .home-1,
+    .home-2 {
+        width: 554rpx;
+        height: 450rpx;
+    }
 }

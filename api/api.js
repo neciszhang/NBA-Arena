@@ -1,4 +1,5 @@
 const host = "https://www.nbaqmq.com";
+// const host = "https://nbaqmq.akqatest.cn";
 
 const sendRequest = function (url, method, data, header) {
   header = header || {
@@ -24,7 +25,7 @@ const sendVerification = phone => {
 
 //2. Verify user sms code to login/register
 const verifyCode = (phone, code) => {
-  return sendRequest(host + '/api/user/enroll', 'POST', { external_customer_id: phone, confirmation_code: code });
+  return sendRequest(host + '/api/user/enroll/0', 'POST', { external_customer_id: phone, confirmation_code: code });
 }
 
 //3. Series Prediction
@@ -121,5 +122,6 @@ module.exports = {
   advPredictPost: advPredictPost,
   advPredictGet: advPredictGet,
   rewardNotification: rewardNotification,
-  getPredictVoteRate: getPredictVoteRate
+  getPredictVoteRate: getPredictVoteRate,
+  host: host
 }
